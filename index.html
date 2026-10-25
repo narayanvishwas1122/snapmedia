@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>SnapMedia — Download Instagram Reels, Videos, Photos & Stories</title>
+  <meta name="title" content="SnapMedia — Download Instagram Reels, Videos, Photos & Stories" />
+  <meta name="description" content="Save your favorite Instagram content in original quality, fast and free. Download Reels, Videos, Photos, Stories, Carousels, and Audio with no login and zero watermarks." />
+  <meta name="keywords" content="Instagram downloader, download Instagram reels, save Instagram stories, Instagram photo download, Instagram audio mp3, download carousel Instagram" />
+  <meta name="author" content="SnapMedia Technologies" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="http://localhost:3000/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://localhost:3000/" />
+  <meta property="og:title" content="SnapMedia — Download Instagram Reels, Videos, Photos & Stories" />
+  <meta property="og:description" content="High-velocity, privacy-first media pipeline utility to download Instagram Reels, Videos, Photos, and Stories in original master quality." />
+  <meta property="og:image" content="http://localhost:3000/hero_mockup.jpg" />
+
+  <!-- Twitter Cards -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="http://localhost:3000/" />
+  <meta property="twitter:title" content="SnapMedia — Download Instagram Reels, Videos, Photos & Stories" />
+  <meta property="twitter:description" content="Fast, clean Instagram media extraction directly in your browser. No login, no watermark, 100% free." />
+  <meta property="twitter:image" content="http://localhost:3000/hero_mockup.jpg" />
+
+  <!-- Schema.org JSON-LD for WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SnapMedia",
+    "url": "http://localhost:3000/",
+    "description": "Download Instagram Reels, Videos, Photos, Stories, Carousels, and Audio in original quality.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All (Web Browser)",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans, Inter & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#EFF6FF",
+              100: "#DBEAFE",
+              200: "#BFDBFE",
+              300: "#93C5FD",
+              400: "#60A5FA",
+              500: "#2463F5",
+              600: "#1D4ED8",
+              700: "#1E40AF",
+              800: "#1E3A8A",
+              900: "#172554",
+            },
+            navy: {
+              800: "#1E293B",
+              900: "#0F172A",
+              950: "#111A33"
+            }
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "Inter", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    @layer base {
+      html { scroll-behavior: smooth; }
+      body { overscroll-behavior: none; }
+    }
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    .dark ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    .dark ::-webkit-scrollbar-thumb { background: #334155; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-800 antialiased selection:bg-brand-500 selection:text-white transition-colors duration-200 dark:bg-[#0B1120] dark:text-slate-100">
+
+  <!-- ==================== FLOATING TOAST NOTIFICATION CONTAINER ==================== -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none" aria-live="polite"></div>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-[0_1px_4px_rgba(0,0,0,0.02)] transition-colors duration-200 dark:bg-[#0B1120]/95 dark:border-slate-800">
+    <div class="h-18 max-w-[1240px] mx-auto px-5 sm:px-6 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a class="flex items-center gap-2.5 group" href="#downloader" aria-label="SnapMedia Home">
+        <div class="w-9 h-9 rounded-xl bg-brand-500 flex items-center justify-center text-white shadow-sm transition-transform duration-200 group-hover:scale-95">
+          <span class="material-symbols-outlined text-[22px]">bolt</span>
+        </div>
+        <div class="flex items-center tracking-tight">
+          <span class="text-[21px] font-extrabold text-navy-950 dark:text-white">Snap</span>
+          <span class="text-[21px] font-extrabold text-brand-500">Media</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300">
+        <a class="relative px-3.5 py-2 text-brand-500 font-bold hover:text-brand-600 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-3.5 after:right-3.5 after:h-0.5 after:bg-brand-500 after:rounded-full" href="#downloader">Downloader</a>
+        <a class="px-3.5 py-2 rounded-lg hover:text-navy-950 hover:bg-slate-50 transition-colors dark:hover:text-white dark:hover:bg-slate-800" href="#how-it-works">How It Works</a>
+        <a class="px-3.5 py-2 rounded-lg hover:text-navy-950 hover:bg-slate-50 transition-colors dark:hover:text-white dark:hover:bg-slate-800" href="#formats">Formats</a>
+        <a class="px-3.5 py-2 rounded-lg hover:text-navy-950 hover:bg-slate-50 transition-colors dark:hover:text-white dark:hover:bg-slate-800" href="#guides">Blog</a>
+        <a class="px-3.5 py-2 rounded-lg hover:text-navy-950 hover:bg-slate-50 transition-colors dark:hover:text-white dark:hover:bg-slate-800" href="#faq">FAQ</a>
+      </nav>
+
+      <!-- Right Controls: Language Selector, Dark Mode Toggle, Mobile Toggle -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Language Dropdown -->
+        <div class="relative">
+          <button id="lang-btn" onclick="toggleLangMenu()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all cursor-pointer dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200" type="button" aria-expanded="false" aria-haspopup="true">
+            <span class="material-symbols-outlined text-[16px] text-slate-500 dark:text-slate-400">language</span>
+            <span id="current-lang-text">English</span>
+            <span class="material-symbols-outlined text-[15px] text-slate-400">expand_more</span>
+          </button>
+          
+          <div id="lang-menu" class="hidden absolute right-0 mt-2 w-36 rounded-xl bg-white shadow-xl border border-slate-100 py-1.5 z-50 text-xs font-medium dark:bg-slate-800 dark:border-slate-700">
+            <button onclick="selectLang('English')" class="w-full text-left px-3.5 py-2 hover:bg-slate-50 flex items-center justify-between text-brand-500 font-bold dark:hover:bg-slate-700">English <span class="material-symbols-outlined text-[16px]">check</span></button>
+            <button onclick="selectLang('Español')" class="w-full text-left px-3.5 py-2 hover:bg-slate-50 text-slate-700 dark:text-slate-200 dark:hover:bg-slate-700">Español</button>
+            <button onclick="selectLang('Français')" class="w-full text-left px-3.5 py-2 hover:bg-slate-50 text-slate-700 dark:text-slate-200 dark:hover:bg-slate-700">Français</button>
+            <button onclick="selectLang('Deutsch')" class="w-full text-left px-3.5 py-2 hover:bg-slate-50 text-slate-700 dark:text-slate-200 dark:hover:bg-slate-700">Deutsch</button>
+            <button onclick="selectLang('Português')" class="w-full text-left px-3.5 py-2 hover:bg-slate-50 text-slate-700 dark:text-slate-200 dark:hover:bg-slate-700">Português</button>
+            <button onclick="selectLang('हिन्दी')" class="w-full text-left px-3.5 py-2 hover:bg-slate-50 text-slate-700 dark:text-slate-200 dark:hover:bg-slate-700">हिन्दी</button>
+          </div>
+        </div>
+
+        <!-- Dark Mode Toggle Button -->
+        <button id="theme-toggle-btn" onclick="toggleDarkMode()" class="w-9 h-9 rounded-xl border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:text-navy-950 hover:bg-slate-50 transition-all cursor-pointer dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 dark:hover:text-white" title="Toggle Dark Mode" aria-label="Toggle theme" type="button">
+          <span class="material-symbols-outlined text-[19px]" id="theme-toggle-icon">dark_mode</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button onclick="toggleMobileMenu()" class="md:hidden w-9 h-9 rounded-xl border border-slate-200 flex items-center justify-center text-slate-700 dark:border-slate-700 dark:text-slate-200" aria-label="Open navigation menu" type="button">
+          <span class="material-symbols-outlined text-[20px]">menu</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-5 py-4 space-y-2 dark:bg-[#0B1120] dark:border-slate-800">
+      <a class="block px-3 py-2 rounded-lg font-bold text-brand-500 bg-brand-50 dark:bg-slate-800" href="#downloader" onclick="toggleMobileMenu()">Downloader</a>
+      <a class="block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800" href="#how-it-works" onclick="toggleMobileMenu()">How It Works</a>
+      <a class="block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800" href="#formats" onclick="toggleMobileMenu()">Formats</a>
+      <a class="block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800" href="#guides" onclick="toggleMobileMenu()">Blog</a>
+      <a class="block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800" href="#faq" onclick="toggleMobileMenu()">FAQ</a>
+    </div>
+  </header>
+
+  <main class="w-full pt-18">
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative w-full pt-12 pb-16 md:pt-16 md:pb-20 overflow-hidden bg-gradient-to-b from-brand-50/50 via-white to-white dark:from-[#0f172a]/40 dark:via-[#0B1120] dark:to-[#0B1120]" id="downloader">
+      
+      <!-- Subtle Ambient Glows -->
+      <div class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-gradient-to-tr from-brand-200/25 to-blue-300/15 blur-[120px] -z-10 dark:from-brand-600/10 dark:to-transparent"></div>
+
+      <div class="max-w-[1240px] mx-auto px-5 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          
+          <!-- Hero Left Column: Headline, Subtitle, Form, Privacy note -->
+          <div class="lg:col-span-7 flex flex-col items-start text-left">
+            
+            <!-- Top Feature Badge Pill -->
+            <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-bold text-slate-700 mb-5 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>100% Free • No Login • High Quality • No Watermark</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-3xl sm:text-4xl md:text-[50px] md:leading-[1.14] font-extrabold text-navy-950 tracking-tight dark:text-white">
+              Download Instagram<br />
+              <span class="text-brand-500">Reels, Videos, Photos &amp; Stories</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-500 mt-4 max-w-xl leading-relaxed dark:text-slate-400">
+              Save your favorite Instagram content in original quality, fast and free. No login, no watermark and works on all devices.
+            </p>
+
+            <!-- Prominent Link Input Card -->
+            <div class="w-full mt-7 relative group">
+              <div class="relative bg-white rounded-2xl p-2 sm:p-2.5 shadow-xl border border-slate-200/80 flex flex-col sm:flex-row items-center gap-2 dark:bg-slate-900 dark:border-slate-700">
+                
+                <div class="flex items-center w-full px-3 gap-2.5 flex-1">
+                  <!-- Instagram Gradient Camera Icon -->
+                  <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <span class="material-symbols-outlined text-[17px]">photo_camera</span>
+                  </div>
+
+                  <input
+                    id="media-url-input"
+                    class="w-full bg-transparent text-sm sm:text-base text-navy-950 placeholder:text-slate-400 focus:outline-none py-2.5 font-medium tracking-tight dark:text-white dark:placeholder:text-slate-500"
+                    placeholder="Paste Instagram link here (e.g. https://www.instagram.com/reel/...)"
+                    type="url"
+                    autocomplete="off"
+                    value=""
+                    onkeydown="if(event.key === 'Enter') handleDownloadSubmit()"
+                    aria-label="Instagram media URL input"
+                  />
+
+                  <!-- Clear Button -->
+                  <button class="inline-flex items-center p-1 text-slate-400 hover:text-slate-700 rounded-lg transition-colors dark:hover:text-slate-200" id="clear-input-btn" onclick="clearInput()" title="Clear Input" type="button" aria-label="Clear URL input">
+                    <span class="material-symbols-outlined text-[19px]">close</span>
+                  </button>
+
+                  <!-- Paste Button -->
+                  <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer select-none border border-slate-200 shrink-0 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700" id="paste-btn" onclick="triggerQuickPaste()" title="Paste from clipboard" type="button">
+                    <span class="material-symbols-outlined text-[15px] text-brand-500">content_paste</span>
+                    <span>Paste</span>
+                  </button>
+                </div>
+
+                <!-- Blue Download Button -->
+                <button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-base font-bold shadow-md shadow-brand-500/25 active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap" id="download-submit-btn" onclick="handleDownloadSubmit()" type="button">
+                  <span id="btn-label">Download</span>
+                  <span class="material-symbols-outlined text-[19px]" id="btn-icon">arrow_forward</span>
+                </button>
+
+              </div>
+            </div>
+
+            <!-- Media Category Filter Tabs -->
+            <div class="mt-4 flex flex-wrap items-center gap-2">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1 dark:text-slate-500">Format:</span>
+              <button class="px-3.5 py-1 rounded-full text-xs font-bold transition-all bg-brand-500 text-white shadow-sm" id="cat-all" onclick="selectCategory('all')" type="button">All Media</button>
+              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-reel" onclick="selectCategory('reel')" type="button">Reels</button>
+              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-video" onclick="selectCategory('video')" type="button">Videos</button>
+              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-photo" onclick="selectCategory('photo')" type="button">Photos</button>
+              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-stories" onclick="selectCategory('stories')" type="button">Stories</button>
+              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-carousel" onclick="selectCategory('carousel')" type="button">Carousel</button>
+              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-audio" onclick="selectCategory('audio')" type="button">Audio (MP3)</button>
+            </div>
+
+            <!-- Privacy Guarantee Statement -->
+            <div class="mt-4 flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500">
+              <span class="material-symbols-outlined text-[16px] text-slate-400">lock</span>
+              <span>We do not store your links or files. Your privacy is 100% safe with us.</span>
+            </div>
+
+          </div>
+
+          <!-- Hero Right Column: Smartphone Mockup with Floating UI Badges -->
+          <div class="lg:col-span-5 flex justify-center items-center relative">
+            <div class="relative w-full max-w-[420px] aspect-square flex items-center justify-center">
+              
+              <!-- Clean Mockup Graphic with Play Button -->
+              <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group dark:border-slate-800">
+                <img id="hero-display-img" src="hero_mockup.jpg" alt="Instagram video reel preview" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" />
+                
+                <!-- Play Trigger Overlay Button -->
+                <button onclick="openMediaModal()" class="absolute inset-0 m-auto w-16 h-16 rounded-full bg-white/95 text-brand-500 flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all cursor-pointer ring-4 ring-white/50 group-hover:ring-brand-500/30" title="Watch Video Preview" type="button" aria-label="Play video reel">
+                  <span class="material-symbols-outlined text-[36px] fill-current" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ==================== RESOLVED MEDIA DOWNLOAD CONSOLE ==================== -->
+        <div id="result-console" class="mt-12 bg-white rounded-2xl shadow-xl border border-slate-200/90 p-6 md:p-8 transition-all dark:bg-slate-900 dark:border-slate-800">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Left: Media Frame -->
+            <div id="media-frame-container" class="lg:col-span-5 relative group overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5] max-h-[380px] flex items-center justify-center shadow-inner">
+              <img id="media-poster-img" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 hidden" alt="Media item preview" src="" />
+              <div id="media-poster-overlay" class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-black/20 pointer-events-none hidden"></div>
+              
+              <!-- Neutral Placeholder State -->
+              <div id="media-placeholder" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-slate-100 dark:bg-slate-800">
+                <div class="w-16 h-16 rounded-2xl bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center mb-3 text-slate-400 dark:text-slate-300">
+                  <span class="material-symbols-outlined text-[32px]">image_not_supported</span>
+                </div>
+                <p class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300 max-w-[240px] leading-relaxed">
+                  Preview unavailable — media information could not be verified.
+                </p>
+              </div>
+
+              <div class="absolute top-4 left-4 backdrop-blur-md bg-slate-900/75 px-3 py-1 rounded-full flex items-center gap-1.5 border border-white/10 text-white text-xs font-semibold">
+                <span class="material-symbols-outlined text-[15px] text-brand-300" id="media-type-icon">movie</span>
+                <span id="media-type-tag">Instagram Reel</span>
+              </div>
+
+              <div id="media-duration-tag" class="absolute bottom-4 left-4 text-xs font-bold text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded hidden">--:--</div>
+
+              <!-- Play Button -->
+              <button id="media-play-btn" class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-white/95 text-brand-500 flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all cursor-pointer group-hover:ring-4 group-hover:ring-white/40 hidden" onclick="openMediaModal()" title="Play Video with Full Audio" type="button" aria-label="Play resolved video">
+                <span class="material-symbols-outlined text-[32px] fill-current" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+              </button>
+            </div>
+
+            <!-- Right: Details, Specs, Format Options, and Action Buttons -->
+            <div class="lg:col-span-7 flex flex-col justify-between h-full space-y-5">
+              <div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                  <span id="media-status-pill" class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-bold tracking-wider uppercase flex items-center gap-1.5 dark:bg-slate-800 dark:text-slate-400">
+                    <span id="media-status-dot" class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+                    <span id="media-status-text">Verification Status</span>
+                  </span>
+                  <span id="media-stream-badge" class="px-2.5 py-0.5 rounded bg-slate-100 text-xs text-slate-500 font-mono font-semibold dark:bg-slate-800 dark:text-slate-400">MEDIA STREAM</span>
+                </div>
+
+                <h3 id="media-title-text" class="text-xl md:text-2xl text-navy-950 font-bold tracking-tight dark:text-white">
+                  Preview unavailable — media information could not be verified.
+                </h3>
+
+                <p id="media-creator-text" class="text-sm text-slate-500 mt-1.5 dark:text-slate-400">
+                  Media information could not be verified for this URL.
+                </p>
+              </div>
+
+              <!-- 4 Metric Boxes -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-1">
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
+                  <span class="text-xs text-slate-400 block mb-0.5">Quality</span>
+                  <span id="metric-quality-val" class="text-sm font-bold text-navy-950 block dark:text-white">—</span>
+                  <span id="metric-quality-sub" class="text-xs text-slate-500 dark:text-slate-400">Resolution</span>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
+                  <span class="text-xs text-slate-400 block mb-0.5">Duration</span>
+                  <span id="metric-duration-val" class="text-sm font-bold text-navy-950 block dark:text-white">—</span>
+                  <span id="metric-duration-sub" class="text-xs text-slate-500 dark:text-slate-400">Runtime</span>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
+                  <span class="text-xs text-slate-400 block mb-0.5">File Size</span>
+                  <span id="metric-filesize-val" class="text-sm font-bold text-navy-950 block dark:text-white">—</span>
+                  <span id="metric-filesize-sub" class="text-xs text-slate-500 dark:text-slate-400">Direct stream</span>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
+                  <span class="text-xs text-slate-400 block mb-0.5">Codec</span>
+                  <span id="metric-codec-val" class="text-sm font-bold text-navy-950 block dark:text-white">—</span>
+                  <span id="metric-codec-sub" class="text-xs text-slate-500 dark:text-slate-400">Format</span>
+                </div>
+              </div>
+
+              <!-- Available Quality Options List (Step 3 Match) -->
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2 dark:bg-slate-800 dark:border-slate-700">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1 dark:text-slate-400">Available Download Options:</span>
+                <div id="format-options-container" class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <button onclick="triggerDownload('video')" class="p-2.5 rounded-lg border-2 border-brand-500 bg-brand-50/70 text-brand-600 font-bold text-xs flex items-center justify-between dark:bg-brand-950/40 dark:text-brand-300">
+                    <span>⬇ HD (1080p)</span>
+                    <span class="font-mono text-[11px] opacity-75">—</span>
+                  </button>
+                  <button onclick="triggerDownload('video')" class="p-2.5 rounded-lg border border-slate-200 bg-white text-slate-700 font-semibold text-xs flex items-center justify-between hover:bg-slate-100 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200">
+                    <span>⬇ SD (720p)</span>
+                    <span class="font-mono text-[11px] opacity-75">—</span>
+                  </button>
+                  <button onclick="triggerDownload('audio')" class="p-2.5 rounded-lg border border-slate-200 bg-white text-slate-700 font-semibold text-xs flex items-center justify-between hover:bg-slate-100 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200">
+                    <span>⬇ Audio (MP3)</span>
+                    <span class="font-mono text-[11px] opacity-75">—</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action Download Buttons -->
+              <div class="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <button id="primary-download-btn" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-500 text-white text-base font-bold shadow-md hover:bg-brand-600 active:scale-[0.98] transition-all cursor-pointer" onclick="triggerDownload('video')" type="button">
+                  <span class="material-symbols-outlined text-[20px]" id="primary-btn-icon">download</span>
+                  <span id="primary-btn-text">Download Video (1080p MP4)</span>
+                </button>
+                <button id="secondary-download-btn" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-950 text-sm font-bold active:scale-[0.98] transition-all cursor-pointer border border-slate-200 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700" onclick="triggerDownload('audio')" type="button">
+                  <span class="material-symbols-outlined text-[19px] text-brand-500" id="secondary-btn-icon">music_note</span>
+                  <span id="secondary-btn-text">Extract Audio (MP3)</span>
+                </button>
+                <button id="copy-stream-btn" class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-950 active:scale-[0.98] transition-all cursor-pointer border border-slate-200 shrink-0 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200" onclick="triggerCopyStream()" title="Copy Direct Stream Link" type="button" aria-label="Copy share link">
+                  <span class="material-symbols-outlined text-[20px]">share</span>
+                </button>
+              </div>
+
+              <div class="hidden text-center py-2.5 px-3.5 rounded-lg bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200 dark:bg-emerald-950/40 dark:border-emerald-800 dark:text-emerald-300" id="action-notification">
+                Media stream payload prepared.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== FEATURE STRIP (6 HIGHLIGHTS) ==================== -->
+    <section class="w-full py-8 border-y border-slate-100 bg-white dark:bg-[#0B1120] dark:border-slate-800">
+      <div class="max-w-[1240px] mx-auto px-5 sm:px-6">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-4 text-center">
+          
+          <!-- Highlight 1 -->
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-500 flex items-center justify-center mb-3 shadow-sm dark:bg-slate-800">
+              <span class="material-symbols-outlined text-[24px]">bolt</span>
+            </div>
+            <h4 class="text-sm font-bold text-navy-950 dark:text-white">Super Fast</h4>
+            <p class="text-xs text-slate-500 mt-1 dark:text-slate-400">Download in seconds</p>
+          </div>
+
+          <!-- Highlight 2 -->
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center mb-3 shadow-sm dark:bg-slate-800">
+              <span class="material-symbols-outlined text-[24px]">military_tech</span>
+            </div>
+            <h4 class="text-sm font-bold text-navy-950 dark:text-white">Original Quality</h4>
+            <p class="text-xs text-slate-500 mt-1 dark:text-slate-400">HD, 1080p supported</p>
+          </div>
+
+          <!-- Highlight 3 -->
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-500 flex items-center justify-center mb-3 shadow-sm dark:bg-slate-800">
+              <span class="material-symbols-outlined text-[24px]">verified</span>
+            </div>
+            <h4 class="text-sm font-bold text-navy-950 dark:text-white">No Watermark</h4>
+            <p class="text-xs text-slate-500 mt-1 dark:text-slate-400">Clean and clear files</p>
+          </div>
+
+          <!-- Highlight 4 -->
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-500 flex items-center justify-center mb-3 shadow-sm dark:bg-slate-800">
+              <span class="material-symbols-outlined text-[24px]">lock_open</span>
+            </div>
+            <h4 class="text-sm font-bold text-navy-950 dark:text-white">No Login Required</h4>
+            <p class="text-xs text-slate-500 mt-1 dark:text-slate-400">100% free to use</p>
+          </div>
+
+          <!-- Highlight 5 -->
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-500 flex items-center justify-center mb-3 shadow-sm dark:bg-slate-800">
+              <span class="material-symbols-outlined text-[24px]">devices</span>
+            </div>
+            <h4 class="text-sm font-bold text-navy-950 dark:text-white">All Devices</h4>
+            <p class="text-xs text-slate-500 mt-1 dark:text-slate-400">Mobile, tablet, desktop</p>
+          </div>
+
+          <!-- Highlight 6 -->
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mb-3 shadow-sm dark:bg-slate-800">
+              <span class="material-symbols-outlined text-[24px]">favorite</span>
+            </div>
+            <h4 class="text-sm font-bold text-navy-950 dark:text-white">Always Free</h4>
+            <p class="text-xs text-slate-500 mt-1 dark:text-slate-400">No hidden charges</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SUPPORTED INSTAGRAM FORMATS ==================== -->
+    <section class="w-full py-16 bg-slate-50/60 dark:bg-slate-900/40" id="formats">
+      <div class="max-w-[1240px] mx-auto px-5 sm:px-6">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-950 dark:text-white">Supported Instagram Formats</h2>
+          <p class="text-sm sm:text-base text-slate-500 mt-2 dark:text-slate-400">Download any type of Instagram content.</p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
+          
+          <!-- Card 1: Reels -->
+          <div onclick="selectCategory('reel'); scrollToConsole();" class="group bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-brand-500/40 transition-all cursor-pointer flex flex-col justify-between dark:bg-slate-800 dark:border-slate-700">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform dark:bg-slate-700">
+                <span class="material-symbols-outlined text-[22px]">movie</span>
+              </div>
+              <h3 class="text-sm font-bold text-navy-950 dark:text-white">Reels</h3>
+              <span class="text-[11px] font-semibold text-slate-400 block dark:text-slate-400">MP4 (HD, 4K)</span>
+            </div>
+            <div class="mt-4 rounded-xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-slate-700">
+              <img src="hero_mockup.jpg" alt="Reels preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+            </div>
+          </div>
+
+          <!-- Card 2: Videos -->
+          <div onclick="selectCategory('video'); scrollToConsole();" class="group bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-brand-500/40 transition-all cursor-pointer flex flex-col justify-between dark:bg-slate-800 dark:border-slate-700">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform dark:bg-slate-700">
+                <span class="material-symbols-outlined text-[22px]">play_circle</span>
+              </div>
+              <h3 class="text-sm font-bold text-navy-950 dark:text-white">Videos</h3>
+              <span class="text-[11px] font-semibold text-slate-400 block dark:text-slate-400">MP4 (HD)</span>
+            </div>
+            <div class="mt-4 rounded-xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-slate-700">
+              <img src="preview.jpg" alt="Feed video preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+            </div>
+          </div>
+
+          <!-- Card 3: Photos -->
+          <div onclick="selectCategory('photo'); scrollToConsole();" class="group bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-brand-500/40 transition-all cursor-pointer flex flex-col justify-between dark:bg-slate-800 dark:border-slate-700">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform dark:bg-slate-700">
+                <span class="material-symbols-outlined text-[22px]">image</span>
+              </div>
+              <h3 class="text-sm font-bold text-navy-950 dark:text-white">Photos</h3>
+              <span class="text-[11px] font-semibold text-slate-400 block dark:text-slate-400">JPG (Original)</span>
+            </div>
+            <div class="mt-4 rounded-xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-slate-700">
+              <img src="instagram_post.jpg" alt="Photo preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+            </div>
+          </div>
+
+          <!-- Card 4: Stories -->
+          <div onclick="selectCategory('stories'); scrollToConsole();" class="group bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-brand-500/40 transition-all cursor-pointer flex flex-col justify-between dark:bg-slate-800 dark:border-slate-700">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform dark:bg-slate-700">
+                <span class="material-symbols-outlined text-[22px]">history_toggle_off</span>
+              </div>
+              <h3 class="text-sm font-bold text-navy-950 dark:text-white">Stories</h3>
+              <span class="text-[11px] font-semibold text-slate-400 block dark:text-slate-400">MP4 / JPG</span>
+            </div>
+            <div class="mt-4 rounded-xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-slate-700">
+              <img src="guide_stories.jpg" alt="Story preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+            </div>
+          </div>
+
+          <!-- Card 5: Carousel -->
+          <div onclick="selectCategory('carousel'); scrollToConsole();" class="group bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-brand-500/40 transition-all cursor-pointer flex flex-col justify-between dark:bg-slate-800 dark:border-slate-700">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-brand-500 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform dark:bg-slate-700">
+                <span class="material-symbols-outlined text-[22px]">view_carousel</span>
+              </div>
+              <h3 class="text-sm font-bold text-navy-950 dark:text-white">Carousel</h3>
+              <span class="text-[11px] font-semibold text-slate-400 block dark:text-slate-400">MP4 / JPG</span>
+            </div>
+            <div class="mt-4 rounded-xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-slate-700">
+              <img src="guide_carousel.jpg" alt="Carousel preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+            </div>
+          </div>
+
+          <!-- Card 6: Audio -->
+          <div onclick="selectCategory('audio'); scrollToConsole();" class="group bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-brand-500/40 transition-all cursor-pointer flex flex-col justify-between dark:bg-slate-800 dark:border-slate-700">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-pink-50 text-pink-500 flex items-center justify-center mb-3 group-hover:scale-105 transition-transform dark:bg-slate-700">
+                <span class="material-symbols-outlined text-[22px]">music_note</span>
+              </div>
+              <h3 class="text-sm font-bold text-navy-950 dark:text-white">Audio</h3>
+              <span class="text-[11px] font-semibold text-slate-400 block dark:text-slate-400">MP3 (Extract)</span>
+            </div>
+            <div class="mt-4 rounded-xl aspect-[4/5] bg-slate-100 flex items-center justify-center group-hover:bg-brand-50 transition-colors dark:bg-slate-700">
+              <div class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center shadow-md">
+                <span class="material-symbols-outlined text-[24px]">play_arrow</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HOW SNAPMEDIA WORKS? (3 SIMPLE STEPS) ==================== -->
+    <section class="w-full py-18 bg-white dark:bg-[#0B1120]" id="how-it-works">
+      <div class="max-w-[1240px] mx-auto px-5 sm:px-6">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-950 dark:text-white">How SnapMedia Works?</h2>
+          <p class="text-sm sm:text-base text-slate-500 mt-2 dark:text-slate-400">Download Instagram content in 3 simple steps.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          
+          <!-- Step 1 -->
+          <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow relative dark:bg-slate-800 dark:border-slate-700">
+            <div class="flex items-center gap-3.5 mb-4">
+              <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-extrabold text-base shadow-sm">
+                1
+              </div>
+              <h3 class="text-lg font-bold text-navy-950 dark:text-white">Copy Link</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-500 leading-relaxed mb-6 dark:text-slate-400">
+              Open Instagram and copy the link of the reel, video, photo, story or carousel.
+            </p>
+            <!-- Step Mini Card -->
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center gap-2 dark:bg-slate-900 dark:border-slate-700">
+              <span class="material-symbols-outlined text-brand-500 text-[18px]">link</span>
+              <input readonly value="https://www.instagram.com/reel/..." class="bg-transparent text-xs text-slate-400 w-full focus:outline-none font-mono" />
+              <button onclick="copySampleToClipboard()" class="px-2.5 py-1 rounded bg-white border border-slate-200 text-[11px] font-bold text-slate-700 shadow-2xs hover:bg-slate-50 shrink-0 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">Copy Link</button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow relative dark:bg-slate-800 dark:border-slate-700">
+            <div class="flex items-center gap-3.5 mb-4">
+              <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-extrabold text-base shadow-sm">
+                2
+              </div>
+              <h3 class="text-lg font-bold text-navy-950 dark:text-white">Paste Link</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-500 leading-relaxed mb-6 dark:text-slate-400">
+              Paste the copied link in SnapMedia and click on the Download button.
+            </p>
+            <!-- Step Mini Card -->
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/60 flex flex-col gap-2 dark:bg-slate-900 dark:border-slate-700">
+              <input readonly value="https://www.instagram.com/reel/C8x9..." class="bg-white px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs text-slate-700 w-full font-mono dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200" />
+              <button onclick="scrollToConsole()" class="w-full py-1.5 rounded-lg bg-brand-500 text-white text-xs font-bold hover:bg-brand-600">Download →</button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow relative dark:bg-slate-800 dark:border-slate-700">
+            <div class="flex items-center gap-3.5 mb-4">
+              <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-extrabold text-base shadow-sm">
+                3
+              </div>
+              <h3 class="text-lg font-bold text-navy-950 dark:text-white">Save Media</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-500 leading-relaxed mb-6 dark:text-slate-400">
+              Choose the quality and click on download to save the file to your device.
+            </p>
+            <!-- Step Mini Card -->
+            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/60 flex items-center gap-3 dark:bg-slate-900 dark:border-slate-700">
+              <img src="instagram_post.jpg" alt="Save thumbnail" class="w-12 h-12 rounded-lg object-cover shrink-0" />
+              <div class="flex-1 space-y-1">
+                <div class="flex items-center justify-between text-[11px] font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded dark:bg-slate-800 dark:text-brand-400">
+                  <span>HD (1080p)</span>
+                  <span>✓</span>
+                </div>
+                <button onclick="triggerDownload('video')" class="w-full py-1 rounded bg-brand-500 text-white text-[11px] font-bold hover:bg-brand-600">⬇ Download</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SUBSTANTIATED TRUST & RELIABILITY STRIP ==================== -->
+    <section class="w-full py-8 bg-white dark:bg-[#0B1120]">
+      <div class="max-w-[1240px] mx-auto px-5 sm:px-6">
+        <div class="rounded-2xl bg-navy-950 text-white p-6 sm:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center border border-slate-800 shadow-xl">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-brand-400 flex items-center justify-center mx-auto mb-2">
+              <span class="material-symbols-outlined text-[22px]">bolt</span>
+            </div>
+            <span class="text-xl sm:text-2xl font-extrabold text-white block">High-Speed CDN</span>
+            <span class="text-xs text-slate-400 mt-1 block">Direct Bitrate Streaming</span>
+          </div>
+
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-brand-400 flex items-center justify-center mx-auto mb-2">
+              <span class="material-symbols-outlined text-[22px]">shield</span>
+            </div>
+            <span class="text-xl sm:text-2xl font-extrabold text-white block">Zero-Log Policy</span>
+            <span class="text-xs text-slate-400 mt-1 block">Client-Side Ephemeral</span>
+          </div>
+
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-brand-400 flex items-center justify-center mx-auto mb-2">
+              <span class="material-symbols-outlined text-[22px]">verified</span>
+            </div>
+            <span class="text-xl sm:text-2xl font-extrabold text-white block">No Watermark</span>
+            <span class="text-xs text-slate-400 mt-1 block">Original Creator Quality</span>
+          </div>
+
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-brand-400 flex items-center justify-center mx-auto mb-2">
+              <span class="material-symbols-outlined text-[22px]">lock</span>
+            </div>
+            <span class="text-xl sm:text-2xl font-extrabold text-white block">Open Architecture</span>
+            <span class="text-xs text-slate-400 mt-1 block">Standard H.264 &amp; AAC</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WORKS ON ALL DEVICES ==================== -->
+    <section class="w-full py-16 bg-slate-50/50 dark:bg-slate-900/30" id="devices">
+      <div class="max-w-[1240px] mx-auto px-5 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Left: Device Mockup Image -->
+          <div class="lg:col-span-6 flex justify-center">
+            <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 bg-white dark:bg-slate-800 dark:border-slate-700">
+              <img src="device_mockups.jpg" alt="SnapMedia works on all devices mockup" class="w-full h-auto object-cover" />
+            </div>
+          </div>
+
+          <!-- Right: Platforms & Descriptions -->
+          <div class="lg:col-span-6 space-y-6">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-950 dark:text-white">Works on All Devices</h2>
+              <p class="text-sm sm:text-base text-slate-500 mt-2.5 leading-relaxed dark:text-slate-400">
+                Use SnapMedia on any device, anywhere. No app installation or companion plugin required.
+              </p>
+            </div>
+
+            <!-- Platform Selector Tabs -->
+            <div class="grid grid-cols-2 gap-3.5 pt-2">
+              
+              <!-- Android -->
+              <div onclick="showDeviceGuide('android')" class="p-4 rounded-xl bg-white border border-slate-200/90 hover:border-brand-500 hover:shadow-sm transition-all cursor-pointer flex items-center gap-3 dark:bg-slate-800 dark:border-slate-700">
+                <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 dark:bg-slate-700">
+                  <span class="material-symbols-outlined text-[22px]">android</span>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-navy-950 dark:text-white">Android</h3>
+                  <span class="text-xs text-slate-400 block dark:text-slate-400">Chrome, Firefox etc.</span>
+                </div>
+              </div>
+
+              <!-- iOS -->
+              <div onclick="showDeviceGuide('ios')" class="p-4 rounded-xl bg-white border border-slate-200/90 hover:border-brand-500 hover:shadow-sm transition-all cursor-pointer flex items-center gap-3 dark:bg-slate-800 dark:border-slate-700">
+                <div class="w-10 h-10 rounded-lg bg-blue-50 text-brand-500 flex items-center justify-center shrink-0 dark:bg-slate-700">
+                  <span class="material-symbols-outlined text-[22px]">phone_iphone</span>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-navy-950 dark:text-white">iPhone / iPad</h3>
+                  <span class="text-xs text-slate-400 block dark:text-slate-400">Safari, Chrome etc.</span>
+                </div>
+              </div>
+
+              <!-- Windows -->
+              <div onclick="showDeviceGuide('windows')" class="p-4 rounded-xl bg-white border border-slate-200/90 hover:border-brand-500 hover:shadow-sm transition-all cursor-pointer flex items-center gap-3 dark:bg-slate-800 dark:border-slate-700">
+                <div class="w-10 h-10 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 dark:bg-slate-700">
+                  <span class="material-symbols-outlined text-[22px]">desktop_windows</span>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-navy-950 dark:text-white">Windows</h3>
+                  <span class="text-xs text-slate-400 block dark:text-slate-400">All modern browsers</span>
+                </div>
+              </div>
+
+              <!-- Mac -->
+              <div onclick="showDeviceGuide('mac')" class="p-4 rounded-xl bg-white border border-slate-200/90 hover:border-brand-500 hover:shadow-sm transition-all cursor-pointer flex items-center gap-3 dark:bg-slate-800 dark:border-slate-700">
+                <div class="w-10 h-10 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 dark:bg-slate-700 dark:text-slate-200">
+                  <span class="material-symbols-outlined text-[22px]">laptop_mac</span>
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-navy-950 dark:text-white">Mac</h3>
+                  <span class="text-xs text-slate-400 block dark:text-slate-400">Safari, Chrome etc.</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Platform Interactive Instructions Modal/Box -->
+            <div id="device-guide-box" class="p-4 rounded-xl bg-blue-50/60 border border-blue-200 text-xs text-slate-700 leading-relaxed dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300">
+              <strong class="text-navy-950 dark:text-white block mb-1" id="device-guide-title">Android Instructions:</strong>
+              <span id="device-guide-desc">Tap Share &gt; Copy Link in Instagram app &gt; Paste into SnapMedia on Google Chrome &gt; Tap Download to save directly to your Downloads folder and Gallery.</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE SNAPMEDIA? & FAQ ==================== -->
+    <section class="w-full py-18 bg-white dark:bg-[#0B1120]" id="faq">
+      <div class="max-w-[1240px] mx-auto px-5 sm:px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- Column 1: Why Choose SnapMedia? Checklist -->
+          <div class="lg:col-span-4 space-y-5">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-950 dark:text-white">Why Choose SnapMedia?</h2>
+            
+            <div class="space-y-3.5 pt-2">
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs shrink-0 font-bold">✓</span>
+                <span class="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">100% Free — No hidden charges</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs shrink-0 font-bold">✓</span>
+                <span class="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">No login or account required</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs shrink-0 font-bold">✓</span>
+                <span class="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">High quality downloads (HD, 1080p)</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs shrink-0 font-bold">✓</span>
+                <span class="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">No watermark on downloaded files</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs shrink-0 font-bold">✓</span>
+                <span class="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">Supports all Instagram media types</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs shrink-0 font-bold">✓</span>
+                <span class="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">Works on mobile, tablet and desktop</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs shrink-0 font-bold">✓</span>
+                <span class="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">Simple, clean and easy to use</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs shrink-0 font-bold">✓</span>
+                <span class="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">Your privacy is always protected</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Instagram Post Mockup Card (Center) -->
+          <div class="lg:col-span-4 flex justify-center">
+            <div class="w-full max-w-[320px] bg-white rounded-2xl shadow-xl border border-slate-200/90 overflow-hidden dark:bg-slate-800 dark:border-slate-700">
+              
+              <!-- Post Header -->
+              <div class="p-3.5 flex items-center justify-between border-b border-slate-100 dark:border-slate-700">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-rose-500 p-0.5">
+                    <img src="instagram_post.jpg" alt="Avatar" class="w-full h-full rounded-full object-cover" />
+                  </div>
+                  <div>
+                    <span class="text-xs font-bold text-navy-950 block leading-tight dark:text-white">creativestudio</span>
+                    <span class="text-[10px] text-slate-400 font-medium">Tokyo, Japan</span>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-[18px] text-slate-400">more_horiz</span>
+              </div>
+
+              <!-- Post Media Image -->
+              <div class="aspect-square bg-slate-100 overflow-hidden dark:bg-slate-700">
+                <img src="instagram_post.jpg" alt="Instagram Creator Post" class="w-full h-full object-cover" />
+              </div>
+
+              <!-- Post Actions -->
+              <div class="p-3.5 space-y-2">
+                <div class="flex items-center justify-between text-navy-950 dark:text-white">
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[20px] text-rose-500 cursor-pointer fill-current" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                    <span class="material-symbols-outlined text-[20px] cursor-pointer">chat_bubble</span>
+                    <span class="material-symbols-outlined text-[20px] cursor-pointer">send</span>
+                  </div>
+                  <span class="material-symbols-outlined text-[20px] cursor-pointer">bookmark</span>
+                </div>
+                <p class="text-xs font-bold text-navy-950 dark:text-white">128K likes</p>
+                <p class="text-xs text-slate-600 dark:text-slate-300"><span class="font-bold text-navy-950 mr-1 dark:text-white">creativestudio</span>Beautiful moments ✨</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Column 3: Frequently Asked Questions Accordion -->
+          <div class="lg:col-span-4 space-y-3.5">
+            <div class="flex items-center justify-between mb-2">
+              <h2 class="text-xl sm:text-2xl font-extrabold text-navy-950 dark:text-white">Frequently Asked Questions</h2>
+              <a href="#faq" class="text-xs font-bold text-brand-500 hover:underline">View All</a>
+            </div>
+
+            <!-- FAQ 1 -->
+            <div class="rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-2xs dark:bg-slate-800 dark:border-slate-700">
+              <button onclick="toggleFaq(1)" class="w-full p-4 text-left flex items-center justify-between gap-3 font-bold text-xs sm:text-sm text-navy-950 hover:bg-slate-50 transition-colors cursor-pointer dark:text-white dark:hover:bg-slate-700" type="button" aria-expanded="true">
+                <span>Is SnapMedia free to use?</span>
+                <span class="material-symbols-outlined text-[18px] text-slate-400 transition-transform duration-200 rotate-180" id="faq-icon-1">expand_more</span>
+              </button>
+              <div id="faq-answer-1" class="px-4 pb-4 pt-1 text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-100 dark:border-slate-700 dark:text-slate-400">
+                Yes, SnapMedia is 100% free to use. You can download Instagram reels, videos, photos, stories and more without any charges.
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-2xs dark:bg-slate-800 dark:border-slate-700">
+              <button onclick="toggleFaq(2)" class="w-full p-4 text-left flex items-center justify-between gap-3 font-bold text-xs sm:text-sm text-navy-950 hover:bg-slate-50 transition-colors cursor-pointer dark:text-white dark:hover:bg-slate-700" type="button" aria-expanded="false">
+                <span>Do I need to log in to download?</span>
+                <span class="material-symbols-outlined text-[18px] text-slate-400 transition-transform duration-200" id="faq-icon-2">expand_more</span>
+              </button>
+              <div id="faq-answer-2" class="hidden px-4 pb-4 pt-1 text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-100 dark:border-slate-700 dark:text-slate-400">
+                No. You do not need an account or Instagram login credentials. Simply paste any publicly accessible Instagram link.
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-2xs dark:bg-slate-800 dark:border-slate-700">
+              <button onclick="toggleFaq(3)" class="w-full p-4 text-left flex items-center justify-between gap-3 font-bold text-xs sm:text-sm text-navy-950 hover:bg-slate-50 transition-colors cursor-pointer dark:text-white dark:hover:bg-slate-700" type="button" aria-expanded="false">
+                <span>Is there a watermark on downloaded files?</span>
+                <span class="material-symbols-outlined text-[18px] text-slate-400 transition-transform duration-200" id="faq-icon-3">expand_more</span>
+              </button>
+              <div id="faq-answer-3" class="hidden px-4 pb-4 pt-1 text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-100 dark:border-slate-700 dark:text-slate-400">
+                Never. SnapMedia does not alter or overlay watermarks onto media. You receive the exact original stream broadcasted by the creator.
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-2xs dark:bg-slate-800 dark:border-slate-700">
+              <button onclick="toggleFaq(4)" class="w-full p-4 text-left flex items-center justify-between gap-3 font-bold text-xs sm:text-sm text-navy-950 hover:bg-slate-50 transition-colors cursor-pointer dark:text-white dark:hover:bg-slate-700" type="button" aria-expanded="false">
+                <span>Can I download private Instagram content?</span>
+                <span class="material-symbols-outlined text-[18px] text-slate-400 transition-transform duration-200" id="faq-icon-4">expand_more</span>
+              </button>
+              <div id="faq-answer-4" class="hidden px-4 pb-4 pt-1 text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-100 dark:border-slate-700 dark:text-slate-400">
+                No. SnapMedia operates strictly on publicly accessible CDN endpoints without bypassing authentication or privacy safeguards.
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-2xs dark:bg-slate-800 dark:border-slate-700">
+              <button onclick="toggleFaq(5)" class="w-full p-4 text-left flex items-center justify-between gap-3 font-bold text-xs sm:text-sm text-navy-950 hover:bg-slate-50 transition-colors cursor-pointer dark:text-white dark:hover:bg-slate-700" type="button" aria-expanded="false">
+                <span>Which devices are supported?</span>
+                <span class="material-symbols-outlined text-[18px] text-slate-400 transition-transform duration-200" id="faq-icon-5">expand_more</span>
+              </button>
+              <div id="faq-answer-5" class="hidden px-4 pb-4 pt-1 text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-100 dark:border-slate-700 dark:text-slate-400">
+                SnapMedia works seamlessly on Android, iPhone/iPad (iOS Safari), Windows PC, and Apple macOS using standard modern browsers.
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="rounded-xl border border-slate-200/80 bg-white overflow-hidden shadow-2xs dark:bg-slate-800 dark:border-slate-700">
+              <button onclick="toggleFaq(6)" class="w-full p-4 text-left flex items-center justify-between gap-3 font-bold text-xs sm:text-sm text-navy-950 hover:bg-slate-50 transition-colors cursor-pointer dark:text-white dark:hover:bg-slate-700" type="button" aria-expanded="false">
+                <span>Why is my download not working?</span>
+                <span class="material-symbols-outlined text-[18px] text-slate-400 transition-transform duration-200" id="faq-icon-6">expand_more</span>
+              </button>
+              <div id="faq-answer-6" class="hidden px-4 pb-4 pt-1 text-xs sm:text-sm text-slate-500 leading-relaxed border-t border-slate-100 dark:border-slate-700 dark:text-slate-400">
+                Downloads may fail if the post is deleted, the account is private, or Instagram's public edge is temporarily rate-limiting requests.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== LATEST GUIDES & TIPS ==================== -->
+    <section class="w-full py-16 bg-slate-50/50 border-t border-slate-100 dark:bg-slate-900/30 dark:border-slate-800" id="guides">
+      <div class="max-w-[1240px] mx-auto px-5 sm:px-6">
+        
+        <div class="flex items-center justify-between mb-10">
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-950 dark:text-white">Latest Guides &amp; Tips</h2>
+            <p class="text-sm text-slate-500 mt-1 dark:text-slate-400">Helpful tutorials to archive and manage your media efficiently.</p>
+          </div>
+          <button onclick="showToast('Viewing all articles library', 'info')" class="text-xs sm:text-sm font-bold text-brand-500 hover:underline inline-flex items-center gap-1 cursor-pointer">
+            <span>View All</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Article 1 -->
+          <article onclick="openArticleModal(1)" class="group bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden hover:shadow-md transition-all cursor-pointer flex flex-col justify-between dark:bg-slate-800 dark:border-slate-700">
+            <div>
+              <div class="aspect-[16/10] bg-slate-100 overflow-hidden dark:bg-slate-700">
+                <img src="guide_reels.jpg" alt="How to Download Instagram Reels in HD Quality" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div class="p-4 sm:p-5">
+                <h3 class="text-sm sm:text-base font-bold text-navy-950 group-hover:text-brand-500 transition-colors leading-snug dark:text-white">
+                  How to Download Instagram Reels in HD Quality
+                </h3>
+                <p class="text-xs text-slate-500 mt-2 line-clamp-2 dark:text-slate-400">
+                  Step-by-step tutorial on preserving 1080p 60fps vertical videos with stereo audio track intact.
+                </p>
+              </div>
+            </div>
+            <div class="px-4 pb-4 pt-0 sm:px-5 sm:pb-5 text-[11px] font-semibold text-slate-400 flex items-center justify-between border-t border-slate-100 mt-2 dark:border-slate-700">
+              <span>Oct 20, 2026</span>
+              <span>• 5 min read</span>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article onclick="openArticleModal(2)" class="group bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden hover:shadow-md transition-all cursor-pointer flex flex-col justify-between dark:bg-slate-800 dark:border-slate-700">
+            <div>
+              <div class="aspect-[16/10] bg-slate-100 overflow-hidden dark:bg-slate-700">
+                <img src="guide_photos.jpg" alt="How to Save Instagram Photos on Mobile and PC" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div class="p-4 sm:p-5">
+                <h3 class="text-sm sm:text-base font-bold text-navy-950 group-hover:text-brand-500 transition-colors leading-snug dark:text-white">
+                  How to Save Instagram Photos on Mobile and PC
+                </h3>
+                <p class="text-xs text-slate-500 mt-2 line-clamp-2 dark:text-slate-400">
+                  Save lossless JPEG images directly to your camera roll or downloads directory without quality degradation.
+                </p>
+              </div>
+            </div>
+            <div class="px-4 pb-4 pt-0 sm:px-5 sm:pb-5 text-[11px] font-semibold text-slate-400 flex items-center justify-between border-t border-slate-100 mt-2 dark:border-slate-700">
+              <span>Oct 18, 2026</span>
+              <span>• 4 min read</span>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article onclick="openArticleModal(3)" class="group bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden hover:shadow-md transition-all cursor-pointer flex flex-col justify-between dark:bg-slate-800 dark:border-slate-700">
+            <div>
+              <div class="aspect-[16/10] bg-slate-100 overflow-hidden dark:bg-slate-700">
+                <img src="guide_stories.jpg" alt="Instagram Story Downloader Complete Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div class="p-4 sm:p-5">
+                <h3 class="text-sm sm:text-base font-bold text-navy-950 group-hover:text-brand-500 transition-colors leading-snug dark:text-white">
+                  Instagram Story Downloader – Complete Guide
+                </h3>
+                <p class="text-xs text-slate-500 mt-2 line-clamp-2 dark:text-slate-400">
+                  Archive active 24-hour public stories anonymously before they expire from public edge cache.
+                </p>
+              </div>
+            </div>
+            <div class="px-4 pb-4 pt-0 sm:px-5 sm:pb-5 text-[11px] font-semibold text-slate-400 flex items-center justify-between border-t border-slate-100 mt-2 dark:border-slate-700">
+              <span>Oct 15, 2026</span>
+              <span>• 6 min read</span>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article onclick="openArticleModal(4)" class="group bg-white rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden hover:shadow-md transition-all cursor-pointer flex flex-col justify-between dark:bg-slate-800 dark:border-slate-700">
+            <div>
+              <div class="aspect-[16/10] bg-slate-100 overflow-hidden dark:bg-slate-700">
+                <img src="guide_carousel.jpg" alt="How to Download Instagram Carousel Posts" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div class="p-4 sm:p-5">
+                <h3 class="text-sm sm:text-base font-bold text-navy-950 group-hover:text-brand-500 transition-colors leading-snug dark:text-white">
+                  How to Download Instagram Carousel Posts
+                </h3>
+                <p class="text-xs text-slate-500 mt-2 line-clamp-2 dark:text-slate-400">
+                  Unpack all 10 slides from carousel albums at once, supporting mixed photo and video galleries.
+                </p>
+              </div>
+            </div>
+            <div class="px-4 pb-4 pt-0 sm:px-5 sm:pb-5 text-[11px] font-semibold text-slate-400 flex items-center justify-between border-t border-slate-100 mt-2 dark:border-slate-700">
+              <span>Oct 12, 2026</span>
+              <span>• 4 min read</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== FINAL BLUE CALL TO ACTION BANNER ==================== -->
+    <section class="w-full py-12 bg-white dark:bg-[#0B1120]">
+      <div class="max-w-[1240px] mx-auto px-5 sm:px-6">
+        
+        <div class="rounded-3xl bg-gradient-to-r from-brand-600 via-brand-500 to-blue-600 text-white p-7 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-brand-500/20 relative overflow-hidden">
+          
+          <div class="flex items-center gap-4 sm:gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0 border border-white/25">
+              <span class="material-symbols-outlined text-[32px] text-white">bolt</span>
+            </div>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-extrabold tracking-tight">Start Downloading Instagram Content Now</h2>
+              <p class="text-xs sm:text-sm text-blue-100 mt-1 font-medium">Fast • Free • No Watermark • No Login</p>
+            </div>
+          </div>
+
+          <button onclick="scrollToConsole()" class="px-7 py-3.5 rounded-full bg-white text-navy-950 hover:bg-blue-50 font-bold text-sm sm:text-base shadow-lg transition-transform active:scale-95 shrink-0 whitespace-nowrap cursor-pointer" type="button">
+            Try SnapMedia Now →
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== REAL VIDEO PLAYER MODAL WITH SOUND ==================== -->
+  <div id="media-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 relative dark:bg-slate-900 dark:border-slate-800">
+      <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50 dark:bg-slate-800 dark:border-slate-700">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <h4 class="text-sm font-bold text-navy-950 dark:text-white">Live Video Playback with Sound</h4>
+        </div>
+        <button onclick="closeMediaModal()" type="button" class="p-1 text-slate-400 hover:text-slate-700 rounded-md transition-colors dark:hover:text-slate-200" title="Close Preview">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Real HTML5 Video Player with Sound Controls -->
+      <div class="relative aspect-[4/5] bg-black flex items-center justify-center overflow-hidden">
+        <video id="modal-video-player" class="w-full h-full object-contain" controls playsinline preload="auto">
+          <source id="modal-video-source" src="sample.mp4" type="video/mp4" />
+          Your browser does not support video playback.
+        </video>
+      </div>
+
+      <div class="p-4 bg-slate-50 flex items-center justify-between border-t border-slate-100 dark:bg-slate-800 dark:border-slate-700">
+        <div class="flex items-center gap-2 text-xs font-bold text-slate-600 dark:text-slate-300">
+          <span class="material-symbols-outlined text-brand-500 text-[18px]">volume_up</span>
+          <span>Full Stereo Sound Track</span>
+        </div>
+        <button onclick="triggerDownload('video'); closeMediaModal();" type="button" class="px-4 py-2 rounded-lg bg-brand-500 text-white text-xs font-bold hover:bg-brand-600 transition-colors shadow-sm">
+          Download MP4
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ARTICLE DETAIL MODAL ==================== -->
+  <div id="article-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 relative dark:bg-slate-900 dark:border-slate-800">
+      <button onclick="closeArticleModal()" class="absolute top-4 right-4 p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200" aria-label="Close article modal">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+      <div id="article-modal-content" class="space-y-4">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="w-full bg-white border-t border-slate-100 pt-16 pb-12 dark:bg-[#0B1120] dark:border-slate-800">
+    <div class="max-w-[1240px] mx-auto px-5 sm:px-6">
+      
+      <div class="grid grid-cols-2 md:grid-cols-12 gap-8 mb-12">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="col-span-2 md:col-span-4 space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-brand-500 flex items-center justify-center text-white shadow-sm">
+              <span class="material-symbols-outlined text-[20px]">bolt</span>
+            </div>
+            <span class="text-xl font-extrabold text-navy-950 dark:text-white">Snap<span class="text-brand-500">Media</span></span>
+          </div>
+          <p class="text-xs text-slate-500 max-w-xs leading-relaxed dark:text-slate-400">
+            The easiest way to download Instagram reels, videos, photos, stories and more in original high definition.
+          </p>
+          
+          <!-- Social Icons -->
+          <div class="flex items-center gap-2 pt-1 text-slate-400">
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 hover:text-rose-600 flex items-center justify-center transition-colors dark:bg-slate-800 dark:hover:bg-slate-700" title="YouTube" aria-label="YouTube">
+              <span class="material-symbols-outlined text-[18px]">play_arrow</span>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 hover:text-navy-950 flex items-center justify-center transition-colors dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:text-white" title="X (Twitter)" aria-label="X Twitter">
+              <span class="text-xs font-bold font-mono">𝕏</span>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 hover:text-pink-600 flex items-center justify-center transition-colors dark:bg-slate-800 dark:hover:bg-slate-700" title="Instagram" aria-label="Instagram">
+              <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 hover:text-blue-600 flex items-center justify-center transition-colors dark:bg-slate-800 dark:hover:bg-slate-700" title="Facebook" aria-label="Facebook">
+              <span class="text-xs font-bold font-mono">f</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="col-span-1 md:col-span-2 space-y-3">
+          <p class="text-xs font-bold text-navy-950 uppercase tracking-wider dark:text-white">Quick Links</p>
+          <ul class="space-y-2 text-xs text-slate-500 font-medium dark:text-slate-400">
+            <li><a class="hover:text-brand-500 transition-colors" href="#downloader">Downloader</a></li>
+            <li><a class="hover:text-brand-500 transition-colors" href="#how-it-works">How It Works</a></li>
+            <li><a class="hover:text-brand-500 transition-colors" href="#formats">Supported Formats</a></li>
+            <li><a class="hover:text-brand-500 transition-colors" href="#devices">Device Guides</a></li>
+            <li><a class="hover:text-brand-500 transition-colors" href="#guides">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Support -->
+        <div class="col-span-1 md:col-span-2 space-y-3">
+          <p class="text-xs font-bold text-navy-950 uppercase tracking-wider dark:text-white">Support</p>
+          <ul class="space-y-2 text-xs text-slate-500 font-medium dark:text-slate-400">
+            <li><a class="hover:text-brand-500 transition-colors" href="#faq">FAQ</a></li>
+            <li><a class="hover:text-brand-500 transition-colors" href="mailto:support@snapmedia.app">Contact Us</a></li>
+            <li><a class="hover:text-brand-500 transition-colors" href="#faq">Report an Issue</a></li>
+            <li><a class="hover:text-brand-500 transition-colors" href="#faq">Privacy Policy</a></li>
+            <li><a class="hover:text-brand-500 transition-colors" href="#faq">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal -->
+        <div class="col-span-1 md:col-span-2 space-y-3">
+          <p class="text-xs font-bold text-navy-950 uppercase tracking-wider dark:text-white">Legal</p>
+          <ul class="space-y-2 text-xs text-slate-500 font-medium dark:text-slate-400">
+            <li><a class="hover:text-brand-500 transition-colors" href="#">Disclaimer</a></li>
+            <li><a class="hover:text-brand-500 transition-colors" href="#">DMCA</a></li>
+            <li><a class="hover:text-brand-500 transition-colors" href="#">Data Protection</a></li>
+            <li><a class="hover:text-brand-500 transition-colors" href="#">Cookies Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Stay Updated Newsletter Form -->
+        <div class="col-span-2 md:col-span-2 space-y-3">
+          <p class="text-xs font-bold text-navy-950 uppercase tracking-wider dark:text-white">Stay Updated</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Get the latest tips and updates.</p>
+          <form onsubmit="handleSubscribe(event)" class="flex items-center gap-1.5 pt-1">
+            <input type="email" id="newsletter-email" required placeholder="Enter your email" class="w-full text-xs px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-brand-500 dark:bg-slate-800 dark:border-slate-700 dark:text-white" />
+            <button type="submit" class="w-9 h-8 rounded-lg bg-brand-500 text-white flex items-center justify-center shrink-0 hover:bg-brand-600 transition-colors" aria-label="Subscribe to newsletter">
+              <span class="material-symbols-outlined text-[17px]">arrow_forward</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom Disclaimer Bar -->
+      <div class="pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 dark:border-slate-800 dark:text-slate-500">
+        <p>© 2026 SnapMedia. All rights reserved.</p>
+        <p class="text-center sm:text-right text-[11px] leading-relaxed max-w-xl">
+          Not affiliated with Instagram or Meta. This tool is for personal archival and educational fair-use reference only.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== FRONTEND JAVASCRIPT LOGIC ==================== -->
+  <script>
+    let currentLiveMedia = null;
+    let currentSelectedCategory = 'all';
+
+    // Category Selector (filters media format tab without injecting sample URLs)
+    function selectCategory(cat) {
+      currentSelectedCategory = cat;
+      const categories = ['all', 'reel', 'video', 'photo', 'stories', 'carousel', 'audio'];
+      categories.forEach(c => {
+        const btn = document.getElementById('cat-' + c);
+        if (btn) {
+          if (c === cat) {
+            btn.className = 'px-3.5 py-1 rounded-full text-xs font-bold transition-all bg-brand-500 text-white shadow-sm';
+          } else {
+            btn.className = 'px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700';
+          }
+        }
+      });
+      showToast(`Selected format: ${cat.toUpperCase()}`, 'info');
+    }
+
+    // Show Neutral Placeholder in Result Card
+    function showNeutralPlaceholder(message) {
+      const titleEl = document.getElementById('media-title-text');
+      const creatorEl = document.getElementById('media-creator-text');
+      const posterImg = document.getElementById('media-poster-img');
+      const posterOverlay = document.getElementById('media-poster-overlay');
+      const placeholder = document.getElementById('media-placeholder');
+      const durationTag = document.getElementById('media-duration-tag');
+      const playBtn = document.getElementById('media-play-btn');
+
+      const qVal = document.getElementById('metric-quality-val');
+      const dVal = document.getElementById('metric-duration-val');
+      const sVal = document.getElementById('metric-filesize-val');
+      const cVal = document.getElementById('metric-codec-val');
+
+      const statusPill = document.getElementById('media-status-pill');
+      const statusDot = document.getElementById('media-status-dot');
+      const statusText = document.getElementById('media-status-text');
+      const streamBadge = document.getElementById('media-stream-badge');
+
+      if (posterImg) {
+        posterImg.removeAttribute('src');
+        posterImg.classList.add('hidden');
+      }
+      if (posterOverlay) posterOverlay.classList.add('hidden');
+      if (playBtn) playBtn.classList.add('hidden');
+      if (durationTag) durationTag.classList.add('hidden');
+
+      if (placeholder) {
+        placeholder.classList.remove('hidden');
+        const pMsg = placeholder.querySelector('p');
+        if (pMsg) pMsg.textContent = message || 'Preview unavailable — media information could not be verified.';
+      }
+
+      if (titleEl) {
+        titleEl.textContent = message || 'Preview unavailable — media information could not be verified.';
+      }
+      if (creatorEl) {
+        creatorEl.textContent = 'Media information could not be verified for this URL.';
+      }
+
+      if (statusPill && statusDot && statusText) {
+        statusPill.className = 'px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-bold tracking-wider uppercase flex items-center gap-1.5 dark:bg-slate-800 dark:text-slate-400';
+        statusDot.className = 'w-1.5 h-1.5 rounded-full bg-slate-400';
+        statusText.textContent = 'Verification Status';
+      }
+      if (streamBadge) streamBadge.textContent = 'UNVERIFIED';
+
+      if (qVal) qVal.textContent = '—';
+      if (dVal) dVal.textContent = '—';
+      if (sVal) sVal.textContent = '—';
+      if (cVal) cVal.textContent = '—';
+    }
+
+    // Render Real Verified Data into Result Card
+    function renderVerifiedResultCard(data) {
+      const titleEl = document.getElementById('media-title-text');
+      const creatorEl = document.getElementById('media-creator-text');
+      const posterImg = document.getElementById('media-poster-img');
+      const posterOverlay = document.getElementById('media-poster-overlay');
+      const placeholder = document.getElementById('media-placeholder');
+      const tagEl = document.getElementById('media-type-tag');
+      const tagIcon = document.getElementById('media-type-icon');
+      const durationTag = document.getElementById('media-duration-tag');
+      const playBtn = document.getElementById('media-play-btn');
+
+      const qVal = document.getElementById('metric-quality-val');
+      const qSub = document.getElementById('metric-quality-sub');
+      const dVal = document.getElementById('metric-duration-val');
+      const dSub = document.getElementById('metric-duration-sub');
+      const sVal = document.getElementById('metric-filesize-val');
+      const sSub = document.getElementById('metric-filesize-sub');
+      const cVal = document.getElementById('metric-codec-val');
+      const cSub = document.getElementById('metric-codec-sub');
+
+      const pBtn = document.getElementById('primary-download-btn');
+      const pBtnText = document.getElementById('primary-btn-text');
+      const pBtnIcon = document.getElementById('primary-btn-icon');
+      const sBtn = document.getElementById('secondary-download-btn');
+      const sBtnText = document.getElementById('secondary-btn-text');
+      const sBtnIcon = document.getElementById('secondary-btn-icon');
+
+      const statusPill = document.getElementById('media-status-pill');
+      const statusDot = document.getElementById('media-status-dot');
+      const statusText = document.getElementById('media-status-text');
+      const streamBadge = document.getElementById('media-stream-badge');
+
+      const hasVerifiedThumbnail = data && data.thumbnail && typeof data.thumbnail === 'string' && data.thumbnail.trim().length > 0;
+
+      if (hasVerifiedThumbnail) {
+        if (posterImg) {
+          posterImg.src = data.thumbnail;
+          posterImg.classList.remove('hidden');
+        }
+        if (posterOverlay) posterOverlay.classList.remove('hidden');
+        if (placeholder) placeholder.classList.add('hidden');
+        if (playBtn) playBtn.classList.toggle('hidden', !data.hasVideo);
+        if (durationTag && data.duration && data.duration !== '—') {
+          durationTag.textContent = data.duration;
+          durationTag.classList.remove('hidden');
+        } else if (durationTag) {
+          durationTag.classList.add('hidden');
+        }
+
+        if (statusPill && statusDot && statusText) {
+          statusPill.className = 'px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 text-xs font-bold tracking-wider uppercase flex items-center gap-1.5 dark:bg-emerald-500/20 dark:text-emerald-400';
+          statusDot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-500';
+          statusText.textContent = 'Ready for Download';
+        }
+        if (streamBadge) streamBadge.textContent = 'VERIFIED PUBLIC STREAM';
+      } else {
+        showNeutralPlaceholder('Preview unavailable — media information could not be verified.');
+      }
+
+      // Update media title and other metadata ONLY when returned by the real backend
+      if (titleEl && data && data.title) {
+        titleEl.textContent = data.title;
+      }
+      if (creatorEl && data && data.uploader) {
+        creatorEl.innerHTML = `Creator: <span class="font-bold text-brand-500 font-mono">${data.uploader}</span> • Public stream verified • No watermark.`;
+      }
+      if (tagEl && data && data.tag) tagEl.textContent = data.tag;
+      if (tagIcon && data && data.tagIcon) tagIcon.textContent = data.tagIcon;
+
+      if (qVal && data && data.quality) qVal.textContent = data.quality;
+      if (qSub && data && data.qualitySub) qSub.textContent = data.qualitySub;
+      if (dVal && data && data.duration) dVal.textContent = data.duration;
+      if (dSub && data && data.durationSub) dSub.textContent = data.durationSub;
+      if (sVal && data && data.filesize) sVal.textContent = data.filesize;
+      if (sSub && data && data.filesizeSub) sSub.textContent = data.filesizeSub;
+      if (cVal && data && data.codec) cVal.textContent = data.codec;
+      if (cSub && data && data.codecSub) cSub.textContent = data.codecSub;
+
+      // Update format options if real formats provided
+      const formatContainer = document.getElementById('format-options-container');
+      if (formatContainer && data && Array.isArray(data.formats) && data.formats.length > 0) {
+        formatContainer.innerHTML = '';
+        data.formats.forEach((fmt, idx) => {
+          const isPrimary = idx === 0;
+          const borderClass = isPrimary 
+            ? 'border-2 border-brand-500 bg-brand-50/70 text-brand-600 dark:bg-brand-950/40 dark:text-brand-300' 
+            : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200';
+          const btn = document.createElement('button');
+          btn.className = `p-2.5 rounded-lg ${borderClass} font-bold text-xs flex items-center justify-between`;
+          btn.type = 'button';
+          btn.onclick = () => triggerDownload(fmt.format || 'video', fmt.downloadUrl);
+          btn.innerHTML = `<span>⬇ ${fmt.quality || 'Download'}</span><span class="font-mono text-[11px] opacity-75">${fmt.filesize || ''}</span>`;
+          formatContainer.appendChild(btn);
+        });
+      }
+
+      // Action button updates based on media type
+      if (data && data.type === 'photo') {
+        if (pBtnText) pBtnText.textContent = 'Download Photo (Original JPG)';
+        if (pBtnIcon) pBtnIcon.textContent = 'download';
+        if (sBtnText) sBtnText.textContent = 'Download High-Res (PNG)';
+        if (sBtnIcon) sBtnIcon.textContent = 'image';
+        if (pBtn) pBtn.onclick = () => triggerDownload('photo');
+        if (sBtn) sBtn.onclick = () => triggerDownload('photo');
+      } else if (data && data.type === 'carousel') {
+        if (pBtnText) pBtnText.textContent = 'Download All Slides (ZIP)';
+        if (pBtnIcon) pBtnIcon.textContent = 'folder_zip';
+        if (sBtnText) sBtnText.textContent = 'Download Slide 1 (JPG)';
+        if (sBtnIcon) sBtnIcon.textContent = 'image';
+        if (pBtn) pBtn.onclick = () => triggerDownload('carousel');
+        if (sBtn) sBtn.onclick = () => triggerDownload('photo');
+      } else if (data && data.type === 'audio') {
+        if (pBtnText) pBtnText.textContent = 'Download Audio Track (MP3)';
+        if (pBtnIcon) pBtnIcon.textContent = 'music_note';
+        if (sBtnText) sBtnText.textContent = 'Download M4A Stem';
+        if (sBtnIcon) sBtnIcon.textContent = 'audio_file';
+        if (pBtn) pBtn.onclick = () => triggerDownload('audio');
+        if (sBtn) sBtn.onclick = () => triggerDownload('audio');
+      } else {
+        if (pBtnText) pBtnText.textContent = 'Download Video (1080p MP4)';
+        if (pBtnIcon) pBtnIcon.textContent = 'download';
+        if (sBtnText) sBtnText.textContent = 'Extract Audio (MP3)';
+        if (sBtnIcon) sBtnIcon.textContent = 'music_note';
+        if (pBtn) pBtn.onclick = () => triggerDownload('video');
+        if (sBtn) sBtn.onclick = () => triggerDownload('audio');
+      }
+    }
+
+    // Handle Form Submit
+    async function handleDownloadSubmit() {
+      const input = document.getElementById('media-url-input');
+      let val = input ? input.value.trim() : '';
+
+      if (!val) {
+        showToast('Please enter an Instagram URL', 'error');
+        if (input) input.focus();
+        return;
+      }
+
+      if (!val.startsWith('http://') && !val.startsWith('https://')) {
+        val = 'https://' + val;
+        if (input) input.value = val;
+      }
+
+      if (!val.includes('instagram.com/') && !val.includes('instagr.am/')) {
+        showToast('Please enter a valid Instagram URL', 'error');
+        return;
+      }
+
+      const btn = document.getElementById('download-submit-btn');
+      const btnLabel = document.getElementById('btn-label');
+      const btnIcon = document.getElementById('btn-icon');
+
+      if (btn) btn.disabled = true;
+      if (btnLabel) btnLabel.textContent = 'Resolving...';
+      if (btnIcon) btnIcon.textContent = 'sync';
+      if (btnIcon) btnIcon.classList.add('animate-spin');
+
+      function resetBtn() {
+        if (btn) btn.disabled = false;
+        if (btnLabel) btnLabel.textContent = 'Download';
+        if (btnIcon) btnIcon.textContent = 'arrow_forward';
+        if (btnIcon) btnIcon.classList.remove('animate-spin');
+      }
+
+      // Live resolution via connected backend using the exact user-submitted URL
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 18000);
+
+        const res = await fetch('/api/media/resolve', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url: val }),
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        const result = await res.json();
+
+        if (res.ok && result.success && result.data) {
+          currentLiveMedia = result.data;
+          const isVid = result.data.type === 'reel' || result.data.type === 'video';
+
+          const verifiedThumbnail = (result.data.thumbnail && typeof result.data.thumbnail === 'string' && result.data.thumbnail.startsWith('http')) 
+            ? result.data.thumbnail 
+            : null;
+
+          if (verifiedThumbnail) {
+            const verifiedData = {
+              type: result.data.type || 'reel',
+              title: result.data.title || 'Instagram Reel',
+              uploader: result.data.uploader || '@creator',
+              tag: `Instagram ${(result.data.type || 'reel').toUpperCase()} • ${result.data.resolution || 'HD'}`,
+              tagIcon: isVid ? 'movie' : 'image',
+              duration: result.data.duration || '—',
+              quality: result.data.resolution || '1080p FHD',
+              qualitySub: isVid ? 'Native stream' : 'Lossless JPEG',
+              filesize: result.data.filesize || 'Direct stream',
+              filesizeSub: 'Direct stream',
+              codec: isVid ? 'H.264 / AAC' : 'sRGB / JPEG',
+              codecSub: isVid ? 'Stereo Audio' : 'Original',
+              hasVideo: isVid,
+              poster: verifiedThumbnail,
+              thumbnail: verifiedThumbnail,
+              formats: result.data.formats || [],
+              videoSrc: result.data.video_url,
+              audioSrc: result.data.audio_url
+            };
+
+            renderVerifiedResultCard(verifiedData);
+            resetBtn();
+            scrollToConsole();
+            showToast('Media stream verified & ready for download!', 'success');
+            return;
+          } else {
+            // No verified thumbnail available from connected backend
+            currentLiveMedia = null;
+            showNeutralPlaceholder('Preview unavailable — media information could not be verified.');
+            resetBtn();
+            scrollToConsole();
+            showToast('Preview unavailable — media information could not be verified.', 'info');
+            return;
+          }
+        } else {
+          currentLiveMedia = null;
+          showNeutralPlaceholder('Preview unavailable — media information could not be verified.');
+          resetBtn();
+          scrollToConsole();
+          showToast(result.error || 'Preview unavailable — media information could not be verified.', 'error');
+          return;
+        }
+      } catch (err) {
+        console.warn('Backend resolution error:', err.message);
+        currentLiveMedia = null;
+        showNeutralPlaceholder('Preview unavailable — media information could not be verified.');
+        resetBtn();
+        scrollToConsole();
+        showToast('Preview unavailable — media information could not be verified.', 'error');
+      }
+    }
+
+    // Trigger Real File Download
+    function triggerDownload(format) {
+      let filename = 'SnapMedia_Instagram_1080p.mp4';
+      let message = '✓ Initiating direct download: SnapMedia_Instagram_1080p.mp4';
+      let downloadSource = 'sample.mp4';
+
+      if (format === 'audio') {
+        filename = 'SnapMedia_Audio_Track_320k.mp3';
+        message = '✓ Initiating audio download: SnapMedia_Audio_Track_320k.mp3';
+        downloadSource = 'sample.mp3';
+      } else if (format === 'photo') {
+        filename = 'SnapMedia_Instagram_Photo_HD.jpg';
+        message = '✓ Initiating photo download: SnapMedia_Instagram_Photo_HD.jpg';
+        downloadSource = 'instagram_post.jpg';
+      } else if (format === 'carousel') {
+        filename = 'SnapMedia_Carousel_Gallery.zip';
+        message = '✓ Initiating carousel download: SnapMedia_Carousel_Gallery.zip';
+        downloadSource = 'guide_carousel.jpg';
+      }
+
+      // Live proxy streaming if media resolved
+      if (currentLiveMedia) {
+        let targetUrl = format === 'audio' 
+          ? currentLiveMedia.audio_url 
+          : (currentLiveMedia.video_url || currentLiveMedia.thumbnail);
+
+        if (targetUrl) {
+          const downloadUrl = `/api/media/download?url=${encodeURIComponent(targetUrl)}&filename=${encodeURIComponent(filename)}`;
+          const a = document.createElement('a');
+          a.href = downloadUrl;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          notifyAction(message);
+          return;
+        }
+      }
+
+      // Sample Mode real file download
+      const a = document.createElement('a');
+      a.href = downloadSource;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      notifyAction(message);
+    }
+
+    // Action Notification
+    function notifyAction(text) {
+      const n = document.getElementById('action-notification');
+      if (!n) return;
+      n.textContent = text;
+      n.classList.remove('hidden');
+      setTimeout(() => n.classList.add('hidden'), 4500);
+      showToast(text, 'success');
+    }
+
+    function triggerCopyStream() {
+      const streamLink = (currentLiveMedia && currentLiveMedia.video_url) 
+        ? currentLiveMedia.video_url 
+        : window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(streamLink);
+      }
+      notifyAction('Direct media stream link copied to clipboard!');
+    }
+
+    // Video Player Modal
+    function openMediaModal() {
+      const modal = document.getElementById('media-modal');
+      const video = document.getElementById('modal-video-player');
+      const source = document.getElementById('modal-video-source');
+      if (modal && video) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        const activeSrc = (currentLiveMedia && currentLiveMedia.video_url) 
+          ? currentLiveMedia.video_url 
+          : 'sample.mp4';
+
+        if (source && source.getAttribute('src') !== activeSrc) {
+          source.setAttribute('src', activeSrc);
+          video.load();
+        }
+        video.volume = 1.0;
+        video.muted = false;
+        video.play().catch(e => console.log('Autoplay prevented:', e));
+      }
+    }
+
+    function closeMediaModal() {
+      const modal = document.getElementById('media-modal');
+      const video = document.getElementById('modal-video-player');
+      if (video) video.pause();
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMediaModal();
+        closeArticleModal();
+      }
+    });
+
+    document.getElementById('media-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'media-modal') closeMediaModal();
+    });
+
+    // Quick Clipboard Paste
+    async function triggerQuickPaste() {
+      const input = document.getElementById('media-url-input');
+      if (!input) return;
+      try {
+        if (navigator.clipboard && navigator.clipboard.readText) {
+          const text = await navigator.clipboard.readText();
+          if (text) {
+            input.value = text;
+            showToast('Pasted URL from clipboard', 'info');
+            handleDownloadSubmit();
+            return;
+          }
+        }
+      } catch (e) {}
+      input.focus();
+    }
+
+    function clearInput() {
+      const input = document.getElementById('media-url-input');
+      if (input) {
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    function copySampleToClipboard() {
+      const sample = 'https://www.instagram.com/reel/C8x9Y2mPk0Q/';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(sample);
+      }
+      const input = document.getElementById('media-url-input');
+      if (input) input.value = sample;
+      showToast('Sample Instagram link copied & inserted!', 'success');
+    }
+
+    function scrollToConsole() {
+      document.getElementById('downloader')?.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('media-url-input')?.focus();
+    }
+
+    // Device Guides
+    const DEVICE_GUIDES = {
+      android: {
+        title: 'Android Download Guide:',
+        desc: '1. In Instagram app, tap Share > Copy Link. 2. Open Chrome or Samsung Internet, go to SnapMedia and tap Paste. 3. Tap Download to save straight to your phone\'s Downloads folder and Gallery.'
+      },
+      ios: {
+        title: 'iPhone / iPad (iOS 15+) Guide:',
+        desc: '1. In Instagram app, tap Share > Copy Link. 2. Open Safari and paste the link into SnapMedia. 3. Tap Download, confirm Safari\'s download prompt, then save from the Safari Downloads manager to your Camera Roll.'
+      },
+      windows: {
+        title: 'Windows PC Guide:',
+        desc: '1. Copy the Instagram URL from your browser address bar. 2. Press Ctrl+V in SnapMedia and click Download. 3. The 1080p MP4 or high-res JPG saves directly to your File Explorer Downloads directory.'
+      },
+      mac: {
+        title: 'Apple macOS Guide:',
+        desc: '1. Copy post URL using ⌘+L followed by ⌘+C. 2. Paste into SnapMedia and click Download. 3. File downloads to ~/Downloads and is instantly playable via QuickTime or Finder QuickLook.'
+      }
+    };
+
+    function showDeviceGuide(dev) {
+      const guide = DEVICE_GUIDES[dev] || DEVICE_GUIDES.android;
+      document.getElementById('device-guide-title').textContent = guide.title;
+      document.getElementById('device-guide-desc').textContent = guide.desc;
+      showToast(`Viewing ${dev.toUpperCase()} download guide`, 'info');
+    }
+
+    // FAQ Accordion
+    function toggleFaq(id) {
+      const ans = document.getElementById('faq-answer-' + id);
+      const icon = document.getElementById('faq-icon-' + id);
+      if (!ans || !icon) return;
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      } else {
+        ans.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Article Guide Modals
+    const ARTICLES = {
+      1: {
+        title: 'How to Download Instagram Reels in HD Quality',
+        date: 'Oct 20, 2026 • 5 min read',
+        content: `
+          <h3 class="text-lg font-bold text-navy-950 dark:text-white">1. Finding the Highest Bitrate Source</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Instagram delivers video streams encoded in H.264/AVC with AAC audio. When downloading Reels, always ensure that your extraction tool grabs the direct 1080x1920 stream rather than lower preview tiers.</p>
+          <h3 class="text-lg font-bold text-navy-950 dark:text-white mt-4">2. Step-by-Step Archival</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Open the Reel in Instagram, tap the Share airplane or three-dots menu, choose 'Copy Link', paste into SnapMedia, and hit Download. Files are saved in original MP4 with full stereo sound.</p>
+        `
+      },
+      2: {
+        title: 'How to Save Instagram Photos on Mobile and PC',
+        date: 'Oct 18, 2026 • 4 min read',
+        content: `
+          <h3 class="text-lg font-bold text-navy-950 dark:text-white">1. Native vs. Compressed Imagery</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Taking a screenshot downsamples imagery to your screen resolution and adds UI clutter. SnapMedia pulls the original full-dimension 1080px JPEG directly from Instagram's CDN servers with 0% extra compression.</p>
+        `
+      },
+      3: {
+        title: 'Instagram Story Downloader – Complete Guide',
+        date: 'Oct 15, 2026 • 6 min read',
+        content: `
+          <h3 class="text-lg font-bold text-navy-950 dark:text-white">1. Understanding the 24-Hour Expiration</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Instagram stories expire after 24 hours. Once the window passes, public cache nodes purge the content. Make sure to download active stories from public accounts before the cycle ends.</p>
+        `
+      },
+      4: {
+        title: 'How to Download Instagram Carousel Posts',
+        date: 'Oct 12, 2026 • 4 min read',
+        content: `
+          <h3 class="text-lg font-bold text-navy-950 dark:text-white">1. Multi-Slide Inspection</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">Carousels can contain up to 10 photos and videos in a single post. SnapMedia extracts every individual slide, letting you save specific images or package the entire set as a single download.</p>
+        `
+      }
+    };
+
+    function openArticleModal(id) {
+      const art = ARTICLES[id];
+      if (!art) return;
+      const modal = document.getElementById('article-modal');
+      const content = document.getElementById('article-modal-content');
+      content.innerHTML = `
+        <h2 class="text-xl font-bold text-navy-950 dark:text-white">${art.title}</h2>
+        <span class="text-xs text-brand-500 font-semibold block">${art.date}</span>
+        <div class="pt-3 border-t border-slate-100 dark:border-slate-800">${art.content}</div>
+        <button onclick="closeArticleModal()" class="mt-4 px-4 py-2 bg-brand-500 text-white rounded-lg text-xs font-bold hover:bg-brand-600">Close Article</button>
+      `;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeArticleModal() {
+      const modal = document.getElementById('article-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      const icon = document.getElementById('theme-toggle-icon');
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        if (icon) icon.textContent = 'dark_mode';
+        showToast('Light theme enabled', 'info');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        if (icon) icon.textContent = 'light_mode';
+        showToast('Dark theme enabled', 'info');
+      }
+    }
+
+    // Initialize Theme
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      const icon = document.getElementById('theme-toggle-icon');
+      if (icon) icon.textContent = 'light_mode';
+    }
+
+    // Language Dropdown
+    function toggleLangMenu() {
+      const m = document.getElementById('lang-menu');
+      if (m) m.classList.toggle('hidden');
+    }
+
+    function selectLang(lang) {
+      document.getElementById('current-lang-text').textContent = lang;
+      document.getElementById('lang-menu').classList.add('hidden');
+      showToast(`Language set to ${lang}`, 'info');
+    }
+
+    document.addEventListener('click', (e) => {
+      const btn = document.getElementById('lang-btn');
+      const menu = document.getElementById('lang-menu');
+      if (btn && menu && !btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+
+    // Mobile Menu
+    function toggleMobileMenu() {
+      const m = document.getElementById('mobile-menu');
+      if (m) m.classList.toggle('hidden');
+    }
+
+    // Newsletter Subscribe
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const input = document.getElementById('newsletter-email');
+      if (input && input.value) {
+        showToast(`Thank you! ${input.value} subscribed to updates.`, 'success');
+        input.value = '';
+      }
+    }
+
+    // Toast System
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+      const toast = document.createElement('div');
+      const icon = type === 'success' ? 'check_circle' : (type === 'error' ? 'error' : 'info');
+      const bg = type === 'success' ? 'bg-navy-950 text-white dark:bg-brand-600' : (type === 'error' ? 'bg-rose-600 text-white' : 'bg-brand-500 text-white');
+
+      toast.className = `pointer-events-auto flex items-center gap-2.5 px-4 py-2.5 rounded-xl shadow-xl text-xs font-bold ${bg} transition-all duration-300 transform translate-y-2 opacity-0 border border-white/10`;
+      toast.innerHTML = `<span class="material-symbols-outlined text-[18px]">${icon}</span><span>${message}</span>`;
+      container.appendChild(toast);
+      requestAnimationFrame(() => toast.classList.remove('translate-y-2', 'opacity-0'));
+      setTimeout(() => {
+        toast.classList.add('translate-y-2', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+  </script>
+
+</body>
+</html>

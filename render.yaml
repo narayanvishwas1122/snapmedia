@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: snapmedia
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: PROVIDER_API_URL
+        sync: false
+      - key: PROVIDER_API_HOST
+        sync: false
+      - key: PROVIDER_API_KEY
+        sync: false

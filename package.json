@@ -1,0 +1,23 @@
+{
+  "name": "snapmedia",
+  "version": "1.0.0",
+  "description": "SnapMedia - Modern Instagram Media Link Utility",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/api.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.20.0",
+    "cheerio": "^1.2.0",
+    "cors": "^2.8.6",
+    "express": "^5.3.0"
+  }
+}
