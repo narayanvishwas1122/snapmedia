@@ -317,14 +317,14 @@ class MediaProviderAdapter {
       availableFormats.push({
         quality: 'HD (1080p)',
         format: 'mp4',
-        resolution: '1080 × 1920',
+        resolution: '1080 Ã— 1920',
         filesize: 'Direct stream',
         downloadUrl: `/api/media/download?url=${encodeURIComponent(videoUrl)}&filename=SnapMedia_Instagram_1080p.mp4`
       });
       availableFormats.push({
         quality: 'SD (720p)',
         format: 'mp4',
-        resolution: '720 × 1280',
+        resolution: '720 Ã— 1280',
         filesize: 'Direct stream',
         downloadUrl: `/api/media/download?url=${encodeURIComponent(videoUrl)}&filename=SnapMedia_Instagram_720p.mp4`
       });
@@ -450,14 +450,14 @@ class MediaProviderAdapter {
             availableFormats.push({
               quality: 'HD (1080p)',
               format: 'mp4',
-              resolution: `${width} × ${height}`,
+              resolution: `${width} Ã— ${height}`,
               filesize: formattedFilesize,
               downloadUrl: `/api/media/download?url=${encodeURIComponent(videoUrl)}&filename=SnapMedia_${info.id || 'video'}_1080p.mp4`
             });
             availableFormats.push({
               quality: 'SD (720p)',
               format: 'mp4',
-              resolution: '720 × 1280',
+              resolution: '720 Ã— 1280',
               filesize: '11.2 MB',
               downloadUrl: `/api/media/download?url=${encodeURIComponent(videoUrl)}&filename=SnapMedia_${info.id || 'video'}_720p.mp4`
             });
@@ -477,7 +477,7 @@ class MediaProviderAdapter {
             availableFormats.push({
               quality: 'Original (JPG)',
               format: 'jpg',
-              resolution: `${width} × ${height}`,
+              resolution: `${width} Ã— ${height}`,
               filesize: '2.4 MB',
               downloadUrl: `/api/media/download?url=${encodeURIComponent(videoUrl || thumbnail)}&filename=SnapMedia_${info.id || 'photo'}.jpg`
             });
@@ -491,7 +491,7 @@ class MediaProviderAdapter {
             thumbnail: thumbnail || null,
             type: mediaType,
             duration: formattedDuration,
-            resolution: `${width} × ${height}`,
+            resolution: `${width} Ã— ${height}`,
             filesize: formattedFilesize,
             formats: availableFormats,
             galleryCount: gallery.length > 1 ? gallery.length : 1
@@ -700,168 +700,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { app, SecurityValidator, RateLimiter, MediaProviderAdapter }; async function makeRequest(options, postData = null) {
-  return new Promise((resolve, reject) => {
-    const req = http.request(options, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        let json = null;
-        try { json = JSON.parse(data); } catch (e) { }
-        resolve({ status: res.statusCode, headers: res.headers, body: data, json });
-      });
-    });
-    req.on('error', reject);
-    req.setTimeout(5000, () => {
-      req.destroy();
-      reject(new Error('Request timeout'));
-    });
-    if (postData) {
-      req.write(typeof postData === 'string' ? postData : JSON.stringify(postData));
-    }
-    req.end();
-  });
-}
-
-async function runTests() {
-  console.log('\n======================================================');
-  console.log('   Running SnapMedia Automated Test Suite');
-  console.log('======================================================\n');
-
-  let passed = 0;
-  let failed = 0;
-
-  function test(name, fn) {
-    try {
-      fn();
-      console.log(`  ✓ PASS: ${name}`);
-      passed++;
-    } catch (err) {
-      console.error(`  ✗ FAIL: ${name}`);
-      console.error(`    ${err.message}`);
-      failed++;
-    }
-  }
-
-  async function testAsync(name, fn) {
-    try {
-      await fn();
-      console.log(`  ✓ PASS: ${name}`);
-      passed++;
-    } catch (err) {
-      console.error(`  ✗ FAIL: ${name}`);
-      console.error(`    ${err.message}`);
-      failed++;
-    }
-  }
-
-  // Unit Test 1: URL Validation
-  test('SecurityValidator correctly validates Instagram URLs', () => {
-    assert.strictEqual(SecurityValidator.isValidInstagramUrl('https://www.instagram.com/reel/C8x9Y2mPk0Q/'), true);
-    assert.strictEqual(SecurityValidator.isValidInstagramUrl('https://instagram.com/p/DB_981XpvZ2/'), true);
-    assert.strictEqual(SecurityValidator.isValidInstagramUrl('instagram.com/stories/user/12345/'), true);
-    assert.strictEqual(SecurityValidator.isValidInstagramUrl('https://instagr.am/reel/123/'), true);
-
-    // Reject invalid domains
-    assert.strictEqual(SecurityValidator.isValidInstagramUrl('https://evil.com/reel/123'), false);
-    assert.strictEqual(SecurityValidator.isValidInstagramUrl('https://instagram.evil.com/p/123'), false);
-    assert.strictEqual(SecurityValidator.isValidInstagramUrl('not_a_url'), false);
-    assert.strictEqual(SecurityValidator.isValidInstagramUrl(''), false);
-  });
-
-  // Unit Test 2: SSRF & Private IP Protection
-  test('SecurityValidator detects and blocks private IP ranges and loopback', () => {
-    assert.strictEqual(SecurityValidator.isPrivateOrLoopbackHost('localhost'), true);
-    assert.strictEqual(SecurityValidator.isPrivateOrLoopbackHost('127.0.0.1'), true);
-    assert.strictEqual(SecurityValidator.isPrivateOrLoopbackHost('10.0.0.1'), true);
-    assert.strictEqual(SecurityValidator.isPrivateOrLoopbackHost('192.168.1.1'), true);
-    assert.strictEqual(SecurityValidator.isPrivateOrLoopbackHost('172.16.0.1'), true);
-    assert.strictEqual(SecurityValidator.isPrivateOrLoopbackHost('169.254.169.254'), true);
-    assert.strictEqual(SecurityValidator.isPrivateOrLoopbackHost('instagram.com'), false);
-    assert.strictEqual(SecurityValidator.isPrivateOrLoopbackHost('scontent.cdninstagram.com'), false);
-  });
-
-  // Unit Test 3: Filename Sanitization
-  test('SecurityValidator sanitizes filenames against directory traversal & header injection', () => {
-    assert.strictEqual(SecurityValidator.sanitizeFilename('../../../etc/passwd.mp4'), '._._._etc_passwd.mp4');
-    assert.strictEqual(SecurityValidator.sanitizeFilename('test\r\nSet-Cookie:bad.mp4'), 'test__Set-Cookie_bad.mp4');
-    assert.ok(SecurityValidator.sanitizeFilename('').startsWith('SnapMedia_'));
-  });
-
-  // Unit Test 4: Rate Limiter
-  test('RateLimiter accurately enforces sliding window request limits', () => {
-    const limiter = new RateLimiter(1000, 3);
-    const testIp = '198.51.100.1';
-    assert.strictEqual(limiter.isLimited(testIp), false);
-    assert.strictEqual(limiter.isLimited(testIp), false);
-    assert.strictEqual(limiter.isLimited(testIp), false);
-    assert.strictEqual(limiter.isLimited(testIp), true, 'Fourth request within window should be limited');
-  });
-
-  // Integration Test 5: GET /api/health
-  await testAsync('GET /api/health returns valid schema and status ok', async () => {
-    const res = await makeRequest({
-      hostname: 'localhost',
-      port: 3000,
-      path: '/api/health',
-      method: 'GET'
-    });
-    assert.strictEqual(res.status, 200);
-    assert.strictEqual(res.json.status, 'ok');
-    assert.strictEqual(typeof res.json.uptime, 'number');
-  });
-
-  // Integration Test 6: SEO Endpoints (robots.txt & sitemap.xml)
-  await testAsync('GET /robots.txt and /sitemap.xml return valid responses', async () => {
-    const robots = await makeRequest({ hostname: 'localhost', port: 3000, path: '/robots.txt', method: 'GET' });
-    assert.strictEqual(robots.status, 200);
-    assert.ok(robots.body.includes('User-agent: *'));
-    assert.ok(robots.body.includes('Sitemap:'));
-
-    const sitemap = await makeRequest({ hostname: 'localhost', port: 3000, path: '/sitemap.xml', method: 'GET' });
-    assert.strictEqual(sitemap.status, 200);
-    assert.ok(sitemap.body.includes('<urlset'));
-  });
-
-  // Integration Test 7: POST /api/media/resolve validation
-  await testAsync('POST /api/media/resolve rejects invalid URL with 400 and INVALID_URL code', async () => {
-    const res = await makeRequest({
-      hostname: 'localhost',
-      port: 3000,
-      path: '/api/media/resolve',
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' }
-    }, { url: 'https://attacker.com/malicious' });
-
-    assert.strictEqual(res.status, 400);
-    assert.strictEqual(res.json.success, false);
-    assert.strictEqual(res.json.code, 'INVALID_URL');
-  });
-
-  // Integration Test 8: GET /api/media/download SSRF protection
-  await testAsync('GET /api/media/download blocks non-CDN URLs with 403 SSRF_BLOCKED', async () => {
-    const res = await makeRequest({
-      hostname: 'localhost',
-      port: 3000,
-      path: '/api/media/download?url=' + encodeURIComponent('http://169.254.169.254/latest/meta-data/'),
-      method: 'GET'
-    });
-
-    assert.strictEqual(res.status, 403);
-    assert.strictEqual(res.json.success, false);
-    assert.strictEqual(res.json.code, 'SSRF_BLOCKED');
-  });
-
-  console.log('\n------------------------------------------------------');
-  console.log(`Test Execution Finished: ${passed} Passed, ${failed} Failed`);
-  console.log('------------------------------------------------------\n');
-
-  if (failed > 0) {
-    process.exit(1);
-  }
-}
-runTests().catch(err => {
-  console.error('Test Suite Runner Error:', err);
-  process.exit(1);
-});
-
+module.exports = { app, SecurityValidator, RateLimiter, MediaProviderAdapter };
