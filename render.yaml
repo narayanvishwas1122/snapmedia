@@ -1,13 +1,14 @@
 services:
   - type: web
     name: snapmedia
-    runtime: node
+    env: docker
     plan: free
-    buildCommand: npm install
-    startCommand: npm start
+    dockerfilePath: Dockerfile
     envVars:
       - key: PORT
-        value: 10000
+        value: 3000
+      - key: NODE_ENV
+        value: production
       - key: PROVIDER_API_URL
         sync: false
       - key: PROVIDER_API_HOST

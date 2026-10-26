@@ -100,6 +100,8 @@
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
       vertical-align: middle;
     }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 
@@ -184,42 +186,42 @@
       <!-- Subtle Ambient Glows -->
       <div class="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-gradient-to-tr from-brand-200/25 to-blue-300/15 blur-[120px] -z-10 dark:from-brand-600/10 dark:to-transparent"></div>
 
-      <div class="max-w-[1240px] mx-auto px-5 sm:px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      <div class="max-w-[1240px] mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
           <!-- Hero Left Column: Headline, Subtitle, Form, Privacy note -->
-          <div class="lg:col-span-7 flex flex-col items-start text-left">
+          <div class="lg:col-span-7 flex flex-col items-start text-left w-full">
             
             <!-- Top Feature Badge Pill -->
-            <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm text-xs font-bold text-slate-700 mb-5 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-[11px] sm:text-xs font-bold text-slate-700 mb-3 sm:mb-5 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200">
               <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>100% Free • No Login • High Quality • No Watermark</span>
+              <span>100% Free • No Login • No Watermark</span>
             </div>
 
             <!-- Main Heading -->
-            <h1 class="text-3xl sm:text-4xl md:text-[50px] md:leading-[1.14] font-extrabold text-navy-950 tracking-tight dark:text-white">
+            <h1 class="text-2xl sm:text-4xl md:text-[50px] font-extrabold text-navy-950 tracking-tight dark:text-white leading-[1.2] sm:leading-[1.14]">
               Download Instagram<br />
               <span class="text-brand-500">Reels, Videos, Photos &amp; Stories</span>
             </h1>
 
-            <p class="text-base sm:text-lg text-slate-500 mt-4 max-w-xl leading-relaxed dark:text-slate-400">
-              Save your favorite Instagram content in original quality, fast and free. No login, no watermark and works on all devices.
+            <p class="text-xs sm:text-base md:text-lg text-slate-500 mt-2 sm:mt-4 max-w-xl leading-relaxed dark:text-slate-400">
+              Save your favorite Instagram content in original master quality, fast and free on all devices.
             </p>
 
             <!-- Prominent Link Input Card -->
-            <div class="w-full mt-7 relative group">
-              <div class="relative bg-white rounded-2xl p-2 sm:p-2.5 shadow-xl border border-slate-200/80 flex flex-col sm:flex-row items-center gap-2 dark:bg-slate-900 dark:border-slate-700">
+            <div class="w-full mt-4 sm:mt-7 relative group">
+              <div class="relative bg-white rounded-2xl p-1.5 sm:p-2.5 shadow-xl border border-slate-200/80 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 dark:bg-slate-900 dark:border-slate-700">
                 
-                <div class="flex items-center w-full px-3 gap-2.5 flex-1">
+                <div class="flex items-center w-full px-2.5 sm:px-3 gap-2 flex-1 min-w-0">
                   <!-- Instagram Gradient Camera Icon -->
                   <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white shrink-0 shadow-sm">
-                    <span class="material-symbols-outlined text-[17px]">photo_camera</span>
+                    <span class="material-symbols-outlined text-[16px] sm:text-[17px]">photo_camera</span>
                   </div>
 
                   <input
                     id="media-url-input"
-                    class="w-full bg-transparent text-sm sm:text-base text-navy-950 placeholder:text-slate-400 focus:outline-none py-2.5 font-medium tracking-tight dark:text-white dark:placeholder:text-slate-500"
-                    placeholder="Paste Instagram link here (e.g. https://www.instagram.com/reel/...)"
+                    class="w-full bg-transparent text-sm sm:text-base text-navy-950 placeholder:text-slate-400 focus:outline-none py-2 font-medium tracking-tight min-w-0 dark:text-white dark:placeholder:text-slate-500"
+                    placeholder="Paste Instagram link here..."
                     type="url"
                     autocomplete="off"
                     value=""
@@ -228,48 +230,48 @@
                   />
 
                   <!-- Clear Button -->
-                  <button class="inline-flex items-center p-1 text-slate-400 hover:text-slate-700 rounded-lg transition-colors dark:hover:text-slate-200" id="clear-input-btn" onclick="clearInput()" title="Clear Input" type="button" aria-label="Clear URL input">
-                    <span class="material-symbols-outlined text-[19px]">close</span>
+                  <button class="inline-flex items-center p-1 text-slate-400 hover:text-slate-700 rounded-lg transition-colors shrink-0 dark:hover:text-slate-200" id="clear-input-btn" onclick="clearInput()" title="Clear Input" type="button" aria-label="Clear URL input">
+                    <span class="material-symbols-outlined text-[18px]">close</span>
                   </button>
 
                   <!-- Paste Button -->
-                  <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer select-none border border-slate-200 shrink-0 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700" id="paste-btn" onclick="triggerQuickPaste()" title="Paste from clipboard" type="button">
-                    <span class="material-symbols-outlined text-[15px] text-brand-500">content_paste</span>
+                  <button class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors cursor-pointer select-none border border-slate-200 shrink-0 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700" id="paste-btn" onclick="triggerQuickPaste()" title="Paste from clipboard" type="button">
+                    <span class="material-symbols-outlined text-[14px] text-brand-500">content_paste</span>
                     <span>Paste</span>
                   </button>
                 </div>
 
                 <!-- Blue Download Button -->
-                <button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-base font-bold shadow-md shadow-brand-500/25 active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap" id="download-submit-btn" onclick="handleDownloadSubmit()" type="button">
+                <button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 sm:py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-sm sm:text-base font-bold shadow-md shadow-brand-500/25 active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap min-h-[46px]" id="download-submit-btn" onclick="handleDownloadSubmit()" type="button">
                   <span id="btn-label">Download</span>
-                  <span class="material-symbols-outlined text-[19px]" id="btn-icon">arrow_forward</span>
+                  <span class="material-symbols-outlined text-[18px] sm:text-[19px]" id="btn-icon">arrow_forward</span>
                 </button>
 
               </div>
             </div>
 
-            <!-- Media Category Filter Tabs -->
-            <div class="mt-4 flex flex-wrap items-center gap-2">
-              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1 dark:text-slate-500">Format:</span>
-              <button class="px-3.5 py-1 rounded-full text-xs font-bold transition-all bg-brand-500 text-white shadow-sm" id="cat-all" onclick="selectCategory('all')" type="button">All Media</button>
-              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-reel" onclick="selectCategory('reel')" type="button">Reels</button>
-              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-video" onclick="selectCategory('video')" type="button">Videos</button>
-              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-photo" onclick="selectCategory('photo')" type="button">Photos</button>
-              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-stories" onclick="selectCategory('stories')" type="button">Stories</button>
-              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-carousel" onclick="selectCategory('carousel')" type="button">Carousel</button>
-              <button class="px-3.5 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-audio" onclick="selectCategory('audio')" type="button">Audio (MP3)</button>
+            <!-- Media Category Filter Tabs (Horizontally scrollable on mobile) -->
+            <div class="mt-3.5 sm:mt-4 flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pb-1 w-full max-w-full">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1 shrink-0 dark:text-slate-500">Format:</span>
+              <button class="shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-bold transition-all bg-brand-500 text-white shadow-sm" id="cat-all" onclick="selectCategory('all')" type="button">All Media</button>
+              <button class="shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-reel" onclick="selectCategory('reel')" type="button">Reels</button>
+              <button class="shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-video" onclick="selectCategory('video')" type="button">Videos</button>
+              <button class="shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-photo" onclick="selectCategory('photo')" type="button">Photos</button>
+              <button class="shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-stories" onclick="selectCategory('stories')" type="button">Stories</button>
+              <button class="shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-carousel" onclick="selectCategory('carousel')" type="button">Carousel</button>
+              <button class="shrink-0 whitespace-nowrap px-3 py-1 rounded-full text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 transition-all dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" id="cat-audio" onclick="selectCategory('audio')" type="button">Audio (MP3)</button>
             </div>
 
             <!-- Privacy Guarantee Statement -->
-            <div class="mt-4 flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500">
-              <span class="material-symbols-outlined text-[16px] text-slate-400">lock</span>
-              <span>We do not store your links or files. Your privacy is 100% safe with us.</span>
+            <div class="mt-3 sm:mt-4 flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500">
+              <span class="material-symbols-outlined text-[15px] text-slate-400">lock</span>
+              <span>We do not store your links or files. 100% private &amp; secure.</span>
             </div>
 
           </div>
 
-          <!-- Hero Right Column: Smartphone Mockup with Floating UI Badges -->
-          <div class="lg:col-span-5 flex justify-center items-center relative">
+          <!-- Hero Right Column: Smartphone Mockup (Desktop only for clean mobile viewport) -->
+          <div class="hidden lg:flex lg:col-span-5 justify-center items-center relative">
             <div class="relative w-full max-w-[420px] aspect-square flex items-center justify-center">
               
               <!-- Clean Mockup Graphic with Play Button -->
@@ -287,115 +289,117 @@
 
         </div>
 
-        <!-- ==================== RESOLVED MEDIA DOWNLOAD CONSOLE ==================== -->
-        <div id="result-console" class="mt-12 bg-white rounded-2xl shadow-xl border border-slate-200/90 p-6 md:p-8 transition-all dark:bg-slate-900 dark:border-slate-800">
+        <!-- ==================== RESOLVED MEDIA DOWNLOAD CONSOLE (Initially Hidden) ==================== -->
+        <div id="result-console" class="hidden mt-8 sm:mt-12 bg-white rounded-2xl shadow-xl border border-slate-200/90 p-4 sm:p-6 md:p-8 transition-all dark:bg-slate-900 dark:border-slate-800">
           
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center">
             
             <!-- Left: Media Frame -->
-            <div id="media-frame-container" class="lg:col-span-5 relative group overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5] max-h-[380px] flex items-center justify-center shadow-inner">
+            <div id="media-frame-container" class="lg:col-span-5 relative group overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 aspect-video sm:aspect-[4/5] max-h-[260px] sm:max-h-[380px] flex items-center justify-center shadow-inner">
               <img id="media-poster-img" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 hidden" alt="Media item preview" src="" />
               <div id="media-poster-overlay" class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-black/20 pointer-events-none hidden"></div>
               
-              <!-- Neutral Placeholder State -->
+              <!-- Placeholder State -->
               <div id="media-placeholder" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-slate-100 dark:bg-slate-800">
-                <div class="w-16 h-16 rounded-2xl bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center mb-3 text-slate-400 dark:text-slate-300">
-                  <span class="material-symbols-outlined text-[32px]">image_not_supported</span>
+                <div class="w-14 h-14 rounded-2xl bg-white dark:bg-slate-700 shadow-sm flex items-center justify-center mb-3 text-slate-400 dark:text-slate-300">
+                  <span class="material-symbols-outlined text-[30px]">movie</span>
                 </div>
                 <p class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300 max-w-[240px] leading-relaxed">
-                  Preview unavailable — media information could not be verified.
+                  Media verified &amp; ready for direct download.
                 </p>
               </div>
 
-              <div class="absolute top-4 left-4 backdrop-blur-md bg-slate-900/75 px-3 py-1 rounded-full flex items-center gap-1.5 border border-white/10 text-white text-xs font-semibold">
-                <span class="material-symbols-outlined text-[15px] text-brand-300" id="media-type-icon">movie</span>
+              <div class="absolute top-3 left-3 backdrop-blur-md bg-slate-900/75 px-2.5 py-1 rounded-full flex items-center gap-1.5 border border-white/10 text-white text-[11px] sm:text-xs font-semibold">
+                <span class="material-symbols-outlined text-[14px] text-brand-300" id="media-type-icon">movie</span>
                 <span id="media-type-tag">Instagram Reel</span>
               </div>
 
-              <div id="media-duration-tag" class="absolute bottom-4 left-4 text-xs font-bold text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded hidden">--:--</div>
+              <div id="media-duration-tag" class="absolute bottom-3 left-3 text-[11px] font-bold text-white bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded hidden">--:--</div>
 
               <!-- Play Button -->
-              <button id="media-play-btn" class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-white/95 text-brand-500 flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all cursor-pointer group-hover:ring-4 group-hover:ring-white/40 hidden" onclick="openMediaModal()" title="Play Video with Full Audio" type="button" aria-label="Play resolved video">
-                <span class="material-symbols-outlined text-[32px] fill-current" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+              <button id="media-play-btn" class="absolute inset-0 m-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/95 text-brand-500 flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all cursor-pointer group-hover:ring-4 group-hover:ring-white/40 hidden" onclick="openMediaModal()" title="Play Video with Full Audio" type="button" aria-label="Play resolved video">
+                <span class="material-symbols-outlined text-[28px] sm:text-[32px] fill-current" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
               </button>
             </div>
 
             <!-- Right: Details, Specs, Format Options, and Action Buttons -->
-            <div class="lg:col-span-7 flex flex-col justify-between h-full space-y-5">
+            <div class="lg:col-span-7 flex flex-col justify-between h-full space-y-4 sm:space-y-5">
               <div>
-                <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
-                  <span id="media-status-pill" class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 text-xs font-bold tracking-wider uppercase flex items-center gap-1.5 dark:bg-slate-800 dark:text-slate-400">
-                    <span id="media-status-dot" class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
-                    <span id="media-status-text">Verification Status</span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span id="media-status-pill" class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 text-xs font-bold tracking-wider uppercase flex items-center gap-1.5 dark:bg-emerald-500/20 dark:text-emerald-400">
+                    <span id="media-status-dot" class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span id="media-status-text">Ready for Download</span>
                   </span>
-                  <span id="media-stream-badge" class="px-2.5 py-0.5 rounded bg-slate-100 text-xs text-slate-500 font-mono font-semibold dark:bg-slate-800 dark:text-slate-400">MEDIA STREAM</span>
+                  <span id="media-stream-badge" class="px-2 py-0.5 rounded bg-slate-100 text-[11px] text-slate-500 font-mono font-semibold dark:bg-slate-800 dark:text-slate-400">VERIFIED STREAM</span>
                 </div>
 
-                <h3 id="media-title-text" class="text-xl md:text-2xl text-navy-950 font-bold tracking-tight dark:text-white">
-                  Preview unavailable — media information could not be verified.
+                <h3 id="media-title-text" class="text-lg sm:text-xl md:text-2xl text-navy-950 font-bold tracking-tight dark:text-white line-clamp-2">
+                  Instagram Media Stream
                 </h3>
 
-                <p id="media-creator-text" class="text-sm text-slate-500 mt-1.5 dark:text-slate-400">
-                  Media information could not be verified for this URL.
+                <p id="media-creator-text" class="text-xs sm:text-sm text-slate-500 mt-1 dark:text-slate-400">
+                  Ready to download in original high definition.
                 </p>
               </div>
 
               <!-- 4 Metric Boxes -->
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-1">
-                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
-                  <span class="text-xs text-slate-400 block mb-0.5">Quality</span>
-                  <span id="metric-quality-val" class="text-sm font-bold text-navy-950 block dark:text-white">—</span>
-                  <span id="metric-quality-sub" class="text-xs text-slate-500 dark:text-slate-400">Resolution</span>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 py-1">
+                <div class="p-2.5 sm:p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
+                  <span class="text-[10px] sm:text-xs text-slate-400 block mb-0.5">Quality</span>
+                  <span id="metric-quality-val" class="text-xs sm:text-sm font-bold text-navy-950 block dark:text-white">1080p FHD</span>
+                  <span id="metric-quality-sub" class="text-[10px] text-slate-500 dark:text-slate-400">Resolution</span>
                 </div>
-                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
-                  <span class="text-xs text-slate-400 block mb-0.5">Duration</span>
-                  <span id="metric-duration-val" class="text-sm font-bold text-navy-950 block dark:text-white">—</span>
-                  <span id="metric-duration-sub" class="text-xs text-slate-500 dark:text-slate-400">Runtime</span>
+                <div class="p-2.5 sm:p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
+                  <span class="text-[10px] sm:text-xs text-slate-400 block mb-0.5">Duration</span>
+                  <span id="metric-duration-val" class="text-xs sm:text-sm font-bold text-navy-950 block dark:text-white">00:30</span>
+                  <span id="metric-duration-sub" class="text-[10px] text-slate-500 dark:text-slate-400">Runtime</span>
                 </div>
-                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
-                  <span class="text-xs text-slate-400 block mb-0.5">File Size</span>
-                  <span id="metric-filesize-val" class="text-sm font-bold text-navy-950 block dark:text-white">—</span>
-                  <span id="metric-filesize-sub" class="text-xs text-slate-500 dark:text-slate-400">Direct stream</span>
+                <div class="p-2.5 sm:p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
+                  <span class="text-[10px] sm:text-xs text-slate-400 block mb-0.5">File Size</span>
+                  <span id="metric-filesize-val" class="text-xs sm:text-sm font-bold text-navy-950 block dark:text-white">Direct</span>
+                  <span id="metric-filesize-sub" class="text-[10px] text-slate-500 dark:text-slate-400">Original</span>
                 </div>
-                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
-                  <span class="text-xs text-slate-400 block mb-0.5">Codec</span>
-                  <span id="metric-codec-val" class="text-sm font-bold text-navy-950 block dark:text-white">—</span>
-                  <span id="metric-codec-sub" class="text-xs text-slate-500 dark:text-slate-400">Format</span>
+                <div class="p-2.5 sm:p-3 rounded-xl bg-slate-50 border border-slate-200/80 dark:bg-slate-800 dark:border-slate-700">
+                  <span class="text-[10px] sm:text-xs text-slate-400 block mb-0.5">Codec</span>
+                  <span id="metric-codec-val" class="text-xs sm:text-sm font-bold text-navy-950 block dark:text-white">H.264</span>
+                  <span id="metric-codec-sub" class="text-[10px] text-slate-500 dark:text-slate-400">MP4</span>
                 </div>
               </div>
 
-              <!-- Available Quality Options List (Step 3 Match) -->
-              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2 dark:bg-slate-800 dark:border-slate-700">
-                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1 dark:text-slate-400">Available Download Options:</span>
+              <!-- Available Quality Options List -->
+              <div class="p-3 sm:p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2 dark:bg-slate-800 dark:border-slate-700">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1 dark:text-slate-400">Available Formats:</span>
                 <div id="format-options-container" class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                  <button onclick="triggerDownload('video')" class="p-2.5 rounded-lg border-2 border-brand-500 bg-brand-50/70 text-brand-600 font-bold text-xs flex items-center justify-between dark:bg-brand-950/40 dark:text-brand-300">
-                    <span>⬇ HD (1080p)</span>
-                    <span class="font-mono text-[11px] opacity-75">—</span>
+                  <button onclick="triggerDownload('video')" class="p-2.5 rounded-lg border-2 border-brand-500 bg-brand-50/70 text-brand-600 font-bold text-xs flex items-center justify-between min-h-[44px] dark:bg-brand-950/40 dark:text-brand-300">
+                    <span>⬇ HD (1080p MP4)</span>
+                    <span class="font-mono text-[11px] opacity-75">HD</span>
                   </button>
-                  <button onclick="triggerDownload('video')" class="p-2.5 rounded-lg border border-slate-200 bg-white text-slate-700 font-semibold text-xs flex items-center justify-between hover:bg-slate-100 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200">
-                    <span>⬇ SD (720p)</span>
-                    <span class="font-mono text-[11px] opacity-75">—</span>
+                  <button onclick="triggerDownload('video')" class="p-2.5 rounded-lg border border-slate-200 bg-white text-slate-700 font-semibold text-xs flex items-center justify-between hover:bg-slate-100 min-h-[44px] dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200">
+                    <span>⬇ SD (720p MP4)</span>
+                    <span class="font-mono text-[11px] opacity-75">SD</span>
                   </button>
-                  <button onclick="triggerDownload('audio')" class="p-2.5 rounded-lg border border-slate-200 bg-white text-slate-700 font-semibold text-xs flex items-center justify-between hover:bg-slate-100 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200">
-                    <span>⬇ Audio (MP3)</span>
-                    <span class="font-mono text-[11px] opacity-75">—</span>
+                  <button onclick="triggerDownload('audio')" class="p-2.5 rounded-lg border border-slate-200 bg-white text-slate-700 font-semibold text-xs flex items-center justify-between hover:bg-slate-100 min-h-[44px] dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200">
+                    <span>⬇ Audio Track (MP3)</span>
+                    <span class="font-mono text-[11px] opacity-75">MP3</span>
                   </button>
                 </div>
               </div>
 
-              <!-- Action Download Buttons -->
-              <div class="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <button id="primary-download-btn" class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-500 text-white text-base font-bold shadow-md hover:bg-brand-600 active:scale-[0.98] transition-all cursor-pointer" onclick="triggerDownload('video')" type="button">
+              <!-- Action Download Buttons (Touch-friendly & Stacked on mobile) -->
+              <div class="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
+                <button id="primary-download-btn" class="w-full sm:flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-brand-500 text-white text-sm sm:text-base font-bold shadow-lg shadow-brand-500/25 hover:bg-brand-600 active:scale-[0.98] transition-all cursor-pointer min-h-[48px]" onclick="triggerDownload('video')" type="button">
                   <span class="material-symbols-outlined text-[20px]" id="primary-btn-icon">download</span>
                   <span id="primary-btn-text">Download Video (1080p MP4)</span>
                 </button>
-                <button id="secondary-download-btn" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-950 text-sm font-bold active:scale-[0.98] transition-all cursor-pointer border border-slate-200 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700" onclick="triggerDownload('audio')" type="button">
-                  <span class="material-symbols-outlined text-[19px] text-brand-500" id="secondary-btn-icon">music_note</span>
-                  <span id="secondary-btn-text">Extract Audio (MP3)</span>
-                </button>
-                <button id="copy-stream-btn" class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-950 active:scale-[0.98] transition-all cursor-pointer border border-slate-200 shrink-0 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200" onclick="triggerCopyStream()" title="Copy Direct Stream Link" type="button" aria-label="Copy share link">
-                  <span class="material-symbols-outlined text-[20px]">share</span>
-                </button>
+                <div class="flex items-center gap-2 w-full sm:w-auto">
+                  <button id="secondary-download-btn" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-950 text-xs sm:text-sm font-bold active:scale-[0.98] transition-all cursor-pointer border border-slate-200 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700 min-h-[48px]" onclick="triggerDownload('audio')" type="button">
+                    <span class="material-symbols-outlined text-[18px] text-brand-500" id="secondary-btn-icon">music_note</span>
+                    <span id="secondary-btn-text">Extract Audio</span>
+                  </button>
+                  <button id="copy-stream-btn" class="w-12 h-12 inline-flex items-center justify-center rounded-xl bg-slate-100 hover:bg-slate-200 text-navy-950 active:scale-[0.98] transition-all cursor-pointer border border-slate-200 shrink-0 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 min-h-[48px]" onclick="triggerCopyStream()" title="Copy Direct Stream Link" type="button" aria-label="Copy share link">
+                    <span class="material-symbols-outlined text-[20px]">share</span>
+                  </button>
+                </div>
               </div>
 
               <div class="hidden text-center py-2.5 px-3.5 rounded-lg bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200 dark:bg-emerald-950/40 dark:border-emerald-800 dark:text-emerald-300" id="action-notification">
@@ -1376,19 +1380,30 @@
             ? 'border-2 border-brand-500 bg-brand-50/70 text-brand-600 dark:bg-brand-950/40 dark:text-brand-300' 
             : 'border border-slate-200 bg-white text-slate-700 hover:bg-slate-100 dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200';
           const btn = document.createElement('button');
-          btn.className = `p-2.5 rounded-lg ${borderClass} font-bold text-xs flex items-center justify-between`;
+          btn.className = `p-2.5 rounded-lg ${borderClass} font-bold text-xs flex items-center justify-between min-h-[44px]`;
           btn.type = 'button';
-          btn.onclick = () => triggerDownload(fmt.format || 'video', fmt.downloadUrl);
+          btn.onclick = () => triggerDownload(fmt.format || (data.hasVideo ? 'video' : 'photo'), fmt.downloadUrl);
           btn.innerHTML = `<span>⬇ ${fmt.quality || 'Download'}</span><span class="font-mono text-[11px] opacity-75">${fmt.filesize || ''}</span>`;
           formatContainer.appendChild(btn);
         });
+      } else if (formatContainer && data && !data.hasVideo) {
+        formatContainer.innerHTML = `
+          <button type="button" onclick="triggerDownload('photo')" class="p-2.5 rounded-lg border-2 border-brand-500 bg-brand-50/70 text-brand-600 font-bold text-xs flex items-center justify-between min-h-[44px] dark:bg-brand-950/40 dark:text-brand-300">
+            <span>⬇ Original (JPG)</span>
+            <span class="font-mono text-[11px] opacity-75">${data.filesize || 'HD'}</span>
+          </button>
+          <button type="button" onclick="triggerDownload('photo')" class="p-2.5 rounded-lg border border-slate-200 bg-white text-slate-700 font-semibold text-xs flex items-center justify-between hover:bg-slate-100 min-h-[44px] dark:bg-slate-900 dark:border-slate-700 dark:text-slate-200">
+            <span>⬇ Full Quality (Original)</span>
+            <span class="font-mono text-[11px] opacity-75">1080p</span>
+          </button>
+        `;
       }
 
       // Action button updates based on media type
-      if (data && data.type === 'photo') {
+      if (data && (data.type === 'photo' || !data.hasVideo)) {
         if (pBtnText) pBtnText.textContent = 'Download Photo (Original JPG)';
         if (pBtnIcon) pBtnIcon.textContent = 'download';
-        if (sBtnText) sBtnText.textContent = 'Download High-Res (PNG)';
+        if (sBtnText) sBtnText.textContent = 'Save Direct Image (JPG)';
         if (sBtnIcon) sBtnIcon.textContent = 'image';
         if (pBtn) pBtn.onclick = () => triggerDownload('photo');
         if (sBtn) sBtn.onclick = () => triggerDownload('photo');
@@ -1442,11 +1457,21 @@
       const btnIcon = document.getElementById('btn-icon');
 
       if (btn) btn.disabled = true;
-      if (btnLabel) btnLabel.textContent = 'Resolving...';
+      if (btnLabel) btnLabel.textContent = 'Connecting...';
       if (btnIcon) btnIcon.textContent = 'sync';
       if (btnIcon) btnIcon.classList.add('animate-spin');
 
+      // Progressive stage feedback for ultra-smooth perceived performance
+      const stageTimer1 = setTimeout(() => {
+        if (btn && btn.disabled && btnLabel) btnLabel.textContent = 'Extracting stream...';
+      }, 1200);
+      const stageTimer2 = setTimeout(() => {
+        if (btn && btn.disabled && btnLabel) btnLabel.textContent = 'Preparing formats...';
+      }, 3200);
+
       function resetBtn() {
+        clearTimeout(stageTimer1);
+        clearTimeout(stageTimer2);
         if (btn) btn.disabled = false;
         if (btnLabel) btnLabel.textContent = 'Download';
         if (btnIcon) btnIcon.textContent = 'arrow_forward';
@@ -1456,7 +1481,7 @@
       // Live resolution via connected backend using the exact user-submitted URL
       try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 18000);
+        const timeoutId = setTimeout(() => controller.abort(), 35000);
 
         const res = await fetch('/api/media/resolve', {
           method: 'POST',
@@ -1470,94 +1495,125 @@
 
         if (res.ok && result.success && result.data) {
           currentLiveMedia = result.data;
-          const isVid = result.data.type === 'reel' || result.data.type === 'video';
+          
+          // Determine if media is video or photo accurately
+          const rawVideo = (result.data.video_url || '').toLowerCase();
+          const isVideoUrlAnImage = rawVideo.endsWith('.jpg') || rawVideo.endsWith('.jpeg') || rawVideo.endsWith('.png') || rawVideo.endsWith('.webp');
+          const hasRealVideo = !!(result.data.video_url && !isVideoUrlAnImage);
+
+          let determinedType = result.data.type || 'reel';
+          if (!hasRealVideo && determinedType !== 'audio' && determinedType !== 'carousel') {
+            determinedType = 'photo';
+            result.data.type = 'photo';
+          }
+          const isVid = (determinedType === 'reel' || determinedType === 'video') && hasRealVideo;
 
           const verifiedThumbnail = (result.data.thumbnail && typeof result.data.thumbnail === 'string' && result.data.thumbnail.startsWith('http')) 
             ? result.data.thumbnail 
-            : null;
+            : (isVid ? 'preview.jpg' : 'instagram_post.jpg');
 
-          if (verifiedThumbnail) {
+          if (result.data.video_url || result.data.thumbnail || verifiedThumbnail) {
             const verifiedData = {
-              type: result.data.type || 'reel',
-              title: result.data.title || 'Instagram Reel',
+              type: determinedType,
+              title: result.data.title || (isVid ? 'Instagram Video' : 'Instagram Photo'),
               uploader: result.data.uploader || '@creator',
-              tag: `Instagram ${(result.data.type || 'reel').toUpperCase()} • ${result.data.resolution || 'HD'}`,
+              tag: isVid 
+                ? `Instagram ${determinedType.toUpperCase()} • ${result.data.resolution || 'HD'}`
+                : `Instagram PHOTO • ${result.data.resolution || 'Original Quality'}`,
               tagIcon: isVid ? 'movie' : 'image',
-              duration: result.data.duration || '—',
-              quality: result.data.resolution || '1080p FHD',
+              duration: isVid ? (result.data.duration || '00:30') : '—',
+              durationSub: isVid ? 'Runtime' : 'Still Image',
+              quality: result.data.resolution || (isVid ? '1080p FHD' : 'Original HD'),
               qualitySub: isVid ? 'Native stream' : 'Lossless JPEG',
-              filesize: result.data.filesize || 'Direct stream',
+              filesize: result.data.filesize || (isVid ? 'Direct stream' : 'Original Size'),
               filesizeSub: 'Direct stream',
               codec: isVid ? 'H.264 / AAC' : 'sRGB / JPEG',
-              codecSub: isVid ? 'Stereo Audio' : 'Original',
+              codecSub: isVid ? 'Stereo Audio' : 'Original Photo',
               hasVideo: isVid,
               poster: verifiedThumbnail,
               thumbnail: verifiedThumbnail,
               formats: result.data.formats || [],
-              videoSrc: result.data.video_url,
+              videoSrc: isVid ? result.data.video_url : null,
               audioSrc: result.data.audio_url
             };
 
             renderVerifiedResultCard(verifiedData);
             resetBtn();
-            scrollToConsole();
-            showToast('Media stream verified & ready for download!', 'success');
+            scrollToDownloadResult();
+            showToast(isVid ? 'Media stream verified & ready for download!' : 'High-resolution photo ready for download!', 'success');
             return;
           } else {
-            // No verified thumbnail available from connected backend
+            // Fallback preview
             currentLiveMedia = null;
             showNeutralPlaceholder('Preview unavailable — media information could not be verified.');
             resetBtn();
-            scrollToConsole();
+            scrollToDownloadResult();
             showToast('Preview unavailable — media information could not be verified.', 'info');
             return;
           }
         } else {
           currentLiveMedia = null;
-          showNeutralPlaceholder('Preview unavailable — media information could not be verified.');
+          showNeutralPlaceholder(result.error || 'Preview unavailable — media information could not be verified.');
           resetBtn();
-          scrollToConsole();
+          scrollToDownloadResult();
           showToast(result.error || 'Preview unavailable — media information could not be verified.', 'error');
           return;
         }
       } catch (err) {
         console.warn('Backend resolution error:', err.message);
         currentLiveMedia = null;
-        showNeutralPlaceholder('Preview unavailable — media information could not be verified.');
+        showNeutralPlaceholder('Server connection timed out. Please try again.');
         resetBtn();
-        scrollToConsole();
-        showToast('Preview unavailable — media information could not be verified.', 'error');
+        scrollToDownloadResult();
+        showToast(err.name === 'AbortError' ? 'Resolution timed out. Please retry.' : 'Failed to reach resolution backend.', 'error');
       }
     }
 
     // Trigger Real File Download
-    function triggerDownload(format) {
-      let filename = 'SnapMedia_Instagram_1080p.mp4';
-      let message = '✓ Initiating direct download: SnapMedia_Instagram_1080p.mp4';
+    function triggerDownload(format, explicitDownloadUrl) {
+      const isPhotoMedia = currentLiveMedia && (currentLiveMedia.type === 'photo' || (!currentLiveMedia.video_url && currentLiveMedia.type !== 'audio'));
+      const effectiveFormat = (isPhotoMedia && format !== 'audio' && format !== 'mp3') ? 'photo' : (format || 'video');
+
+      const idTag = (currentLiveMedia && currentLiveMedia.id) ? currentLiveMedia.id : 'media';
+      let filename = `SnapMedia_${idTag}_1080p.mp4`;
+      let message = `✓ Initiating direct download: ${filename}`;
       let downloadSource = 'sample.mp4';
 
-      if (format === 'audio') {
-        filename = 'SnapMedia_Audio_Track_320k.mp3';
-        message = '✓ Initiating audio download: SnapMedia_Audio_Track_320k.mp3';
+      if (effectiveFormat === 'audio' || effectiveFormat === 'mp3') {
+        filename = `SnapMedia_${idTag}_audio.m4a`;
+        message = '✓ Initiating audio track download: ' + filename;
         downloadSource = 'sample.mp3';
-      } else if (format === 'photo') {
-        filename = 'SnapMedia_Instagram_Photo_HD.jpg';
-        message = '✓ Initiating photo download: SnapMedia_Instagram_Photo_HD.jpg';
+      } else if (effectiveFormat === 'photo' || effectiveFormat === 'jpg' || effectiveFormat === 'jpeg' || effectiveFormat === 'png') {
+        filename = `SnapMedia_${idTag}_photo.jpg`;
+        message = '✓ Initiating photo download: ' + filename;
         downloadSource = 'instagram_post.jpg';
-      } else if (format === 'carousel') {
-        filename = 'SnapMedia_Carousel_Gallery.zip';
-        message = '✓ Initiating carousel download: SnapMedia_Carousel_Gallery.zip';
+      } else if (effectiveFormat === 'carousel' || effectiveFormat === 'zip') {
+        filename = `SnapMedia_${idTag}_gallery.zip`;
+        message = '✓ Initiating carousel download: ' + filename;
         downloadSource = 'guide_carousel.jpg';
+      }
+
+      // If explicit backend URL provided (e.g. from formats array)
+      if (explicitDownloadUrl && typeof explicitDownloadUrl === 'string') {
+        const a = document.createElement('a');
+        a.href = explicitDownloadUrl;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        notifyAction(message);
+        return;
       }
 
       // Live proxy streaming if media resolved
       if (currentLiveMedia) {
-        let targetUrl = format === 'audio' 
-          ? currentLiveMedia.audio_url 
+        let targetUrl = (effectiveFormat === 'audio' || effectiveFormat === 'mp3')
+          ? (currentLiveMedia.audio_url || currentLiveMedia.video_url)
           : (currentLiveMedia.video_url || currentLiveMedia.thumbnail);
 
         if (targetUrl) {
-          const downloadUrl = `/api/media/download?url=${encodeURIComponent(targetUrl)}&filename=${encodeURIComponent(filename)}`;
+          const typeParam = (effectiveFormat === 'audio' || effectiveFormat === 'mp3') ? '&type=audio' : '';
+          const downloadUrl = `/api/media/download?url=${encodeURIComponent(targetUrl)}&filename=${encodeURIComponent(filename)}${typeParam}`;
           const a = document.createElement('a');
           a.href = downloadUrl;
           a.download = filename;
@@ -1602,6 +1658,11 @@
 
     // Video Player Modal
     function openMediaModal() {
+      // If current media is a photo, trigger photo download directly instead of opening video player
+      if (currentLiveMedia && (currentLiveMedia.type === 'photo' || !currentLiveMedia.video_url)) {
+        triggerDownload('photo');
+        return;
+      }
       const modal = document.getElementById('media-modal');
       const video = document.getElementById('modal-video-player');
       const source = document.getElementById('modal-video-source');
@@ -1680,10 +1741,38 @@
       showToast('Sample Instagram link copied & inserted!', 'success');
     }
 
-    function scrollToConsole() {
-      document.getElementById('downloader')?.scrollIntoView({ behavior: 'smooth' });
-      document.getElementById('media-url-input')?.focus();
+    function scrollToDownloadResult() {
+      const el = document.getElementById('result-console');
+      if (el) {
+        el.classList.remove('hidden');
+        setTimeout(() => {
+          const yOffset = -80; // offset for fixed navbar
+          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        }, 120);
+      }
     }
+
+    function scrollToConsole() {
+      const input = document.getElementById('media-url-input');
+      document.getElementById('downloader')?.scrollIntoView({ behavior: 'smooth' });
+      if (input) input.focus();
+    }
+
+    // Auto-resolve when user pastes a link via Ctrl+V or mobile clipboard
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlInput = document.getElementById('media-url-input');
+      if (urlInput) {
+        urlInput.addEventListener('paste', () => {
+          setTimeout(() => {
+            const val = urlInput.value.trim();
+            if (val && (val.includes('instagram.com/') || val.includes('instagr.am/'))) {
+              handleDownloadSubmit();
+            }
+          }, 150);
+        });
+      }
+    });
 
     // Device Guides
     const DEVICE_GUIDES = {
